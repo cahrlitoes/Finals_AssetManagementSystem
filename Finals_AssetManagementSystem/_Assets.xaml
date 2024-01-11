@@ -1,0 +1,41 @@
+﻿<Window x:Class="Finals_AssetManagementSystem._Assets"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_AssetManagementSystem"
+        mc:Ignorable="d"
+        Title="View Assets" Height="850" Width="870" ResizeMode="NoResize">
+    <Grid>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="988" Width="871" VerticalAlignment="Top" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5" Margin="0,1,0,0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.107"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.598"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="112" Width="900" VerticalAlignment="Top" Fill="#FF720000"/>
+        <Label Content="Northville International School" HorizontalAlignment="Left" Height="42" Margin="99,35,0,0" VerticalAlignment="Top" Width="332" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.45,2.623"/>
+        <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="622,56,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753"/>
+        <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="589,35,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <ListBox x:Name="lbxAllItems" Width="771" Height="493" Margin="54,234,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAllItems_SelectionChanged" BorderBrush="White"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="54,190,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="110,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtSearch_TextChanged" BorderBrush="White"/>
+        <Label Content="ALL ASSETS" HorizontalAlignment="Left" Margin="58,137,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="144" FontWeight="Bold" Foreground="White" FontSize="24"/>
+        <Label Content="Category" HorizontalAlignment="Left" Margin="430,192,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White"/>
+        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="492,192,0,0" VerticalAlignment="Top" Width="120" BorderBrush="White" SelectionChanged="ComboBoxCategory_SelectionChanged"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="643,192,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White"/>
+        <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" Height="26" Margin="705,192,0,0" VerticalAlignment="Top" Width="120" BorderBrush="White" SelectionChanged="ComboBoxStatus_SelectionChanged_1"/>
+        <Label Content="Asset Management System" HorizontalAlignment="Left" Height="40" Margin="99,56,0,0" VerticalAlignment="Top" Width="212" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Button x:Name="btnAddItems" Content="ADD ASSET" HorizontalAlignment="Left" Margin="54,751,0,0" VerticalAlignment="Top" Height="54" Width="139" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnAddItems_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14" RenderTransformOrigin="0.485,-2.061"/>
+        <Button x:Name="btnHome" HorizontalAlignment="Left" VerticalAlignment="Top" Height="112" Width="99" Background="#FF720000" BorderBrush="#FF720000" Click="btnHome_Click" Style="{StaticResource RoundedDefault}">
+            <Image Height="100" Width="100" Source="/NorthvilleLogo.png"/>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="220" Margin="695,-48,0,0" VerticalAlignment="Top" Width="207" Source="/UserIcon.png"/>
+        <Button x:Name="btnUpdateItems" Content="UPDATE ASSET" HorizontalAlignment="Left" Margin="686,751,0,0" VerticalAlignment="Top" Height="54" Width="139" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnUpdateItem_Copy_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14" RenderTransformOrigin="0.485,-2.061"/>
+
+    </Grid>
+</Window>

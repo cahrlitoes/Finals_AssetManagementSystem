@@ -1,0 +1,60 @@
+﻿<Window x:Class="Finals_AssetManagementSystem._Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_AssetManagementSystem"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="680" Width="790" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+
+        <Rectangle HorizontalAlignment="Left" Height="19" Margin="1082,646,0,0" VerticalAlignment="Top" Width="20">
+            <Rectangle.Stroke>
+                <SolidColorBrush Color="Black" Opacity="0"/>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Black" Opacity="0"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle RadiusX="5" RadiusY="5" Height="665" VerticalAlignment="Top" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5" Margin="0,6,-1,0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.107"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.598"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="112" Width="790" VerticalAlignment="Top" Fill="#FF720000"/>
+        <Label Content="Northville International School" HorizontalAlignment="Left" Height="42" Margin="99,32,0,0" VerticalAlignment="Top" Width="332" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.45,2.623"/>
+        <Image HorizontalAlignment="Left" Height="99" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Source="/NorthvilleLogo.png"/>
+        <Label Content="Asset Management System" HorizontalAlignment="Left" Height="40" Margin="99,54,0,0" VerticalAlignment="Top" Width="212" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="545,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="512,29,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Button x:Name="btnItems" Content="" HorizontalAlignment="Left" Margin="60,188,0,0" VerticalAlignment="Top" Height="150" Width="290" Background="#FF720000" Foreground="#FF152956" Click="btnItems_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04"/>
+        <Button x:Name="btnMaintenance" HorizontalAlignment="Left" Margin="423,188,0,0" VerticalAlignment="Top" Height="150" Width="290" Background="#FF720000" Foreground="#FF152956" Click="btnMaintenance_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04"/>
+        <Label Content="ASSETS" HorizontalAlignment="Left" Height="28" Margin="205,202,0,0" VerticalAlignment="Top" Width="122" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label Content="MAINTENANCE" HorizontalAlignment="Left" Height="28" Margin="565,202,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label Content="SCHEDULE" HorizontalAlignment="Left" Height="28" Margin="565,224,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Button x:Name="btnBorrowers" HorizontalAlignment="Left" Margin="60,403,0,0" VerticalAlignment="Top" Height="150" Width="290" Background="#FF720000" Foreground="#FF152956" Click="btnBorrowers_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04"/>
+        <Label Content="BORROWERS" HorizontalAlignment="Left" Height="28" Margin="201,417,0,0" VerticalAlignment="Top" Width="110" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Button x:Name="btnPendings" Content="" HorizontalAlignment="Left" Margin="423,403,0,0" VerticalAlignment="Top" Height="150" Width="290" Background="#FF720000" Foreground="#FF152956" Click="btnPendings_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04"/>
+        <Label Content="PENDING" HorizontalAlignment="Left" Height="28" Margin="575,419,0,0" VerticalAlignment="Top" Width="122" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label x:Name="AdminName_Copy2" Content="0" HorizontalAlignment="Left" Margin="575,462,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" RenderTransformOrigin="0.889,0.613" Width="40"/>
+        <Label Content="HISTORY" HorizontalAlignment="Left" Height="28" Margin="201,439,0,0" VerticalAlignment="Top" Width="79" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Image HorizontalAlignment="Left" Height="184" Margin="630,-36,0,0" VerticalAlignment="Top" Width="185" Source="/UserIcon.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="460,213,0,0" VerticalAlignment="Top" Width="100" Source="/MaintenanceSchedIcon.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="92,428,0,0" VerticalAlignment="Top" Width="100" Source="/BorrowersIcon.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="461,425,0,0" VerticalAlignment="Top" Width="100" Source="/PendingIcon.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="90,213,0,0" VerticalAlignment="Top" Width="100" Source="/AssetIcon.png"/>
+        <Label Content="REQUESTS" HorizontalAlignment="Left" Height="28" Margin="575,440,0,0" VerticalAlignment="Top" Width="122" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label Content="DATE TODAY" HorizontalAlignment="Left" Height="28" Margin="679,600,0,0" VerticalAlignment="Top" Width="111" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <Label x:Name="AdminName_Copy" Content="0" HorizontalAlignment="Left" Margin="683,628,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" RenderTransformOrigin="0.889,0.613" Width="101"/>
+
+    </Grid>
+</Window>

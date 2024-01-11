@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFD9ED11-34FD-425A-B3F0-4381B8357FB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Finals_AssetManagementSystem</RootNamespace>
+    <AssemblyName>Finals_AssetManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AssetManagement.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssetManagement.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="_AddAsset.xaml.cs">
+      <DependentUpon>_AddAsset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_AdminLogin.xaml.cs">
+      <DependentUpon>_AdminLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Assets.xaml.cs">
+      <DependentUpon>_Assets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_BorrowAsset.xaml.cs">
+      <DependentUpon>_BorrowAsset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_BorrowerLogin.xaml.cs">
+      <DependentUpon>_BorrowerLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_BorrowersHistory.xaml.cs">
+      <DependentUpon>_BorrowersHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Home.xaml.cs">
+      <DependentUpon>_Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_MaintenanceSched.xaml.cs">
+      <DependentUpon>_MaintenanceSched.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Requests.xaml.cs">
+      <DependentUpon>_Requests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_ReturnAsset.xaml.cs">
+      <DependentUpon>_ReturnAsset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_UpdateAssetxaml.xaml.cs">
+      <DependentUpon>_UpdateAssetxaml.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="_AddAsset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_AdminLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_Assets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_BorrowAsset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_BorrowerLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_BorrowersHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_MaintenanceSched.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_Requests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_ReturnAsset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_UpdateAssetxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="AssetManagement.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AssetManagement.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AssetManagement.dbml.layout">
+      <DependentUpon>AssetManagement.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClassroomBG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NorthvilleLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AdminIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FacultyIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AssetIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MaintenanceSchedIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BorrowersIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PendingIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BorrowIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ReturnIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
