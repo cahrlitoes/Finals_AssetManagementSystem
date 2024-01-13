@@ -27,7 +27,7 @@ namespace Finals_AssetManagementSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CAHRLOS-ASUS1\\MSSQLSERVER01;Initial Catalog=\"Asset Management System\"" +
-            ";Integrated Security=True;Connect Timeout=30;Trust Server Certificate=False")]
+            ";Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True")]
         public string Asset_Management_SystemConnectionString {
             get {
                 return ((string)(this["Asset_Management_SystemConnectionString"]));
