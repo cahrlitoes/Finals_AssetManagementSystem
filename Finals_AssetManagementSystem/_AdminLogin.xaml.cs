@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Finals_AssetManagementSystem.Properties;
+using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,38 +22,29 @@ namespace Finals_AssetManagementSystem
     public partial class _AdminLogin : Window
     {
 
-        AssetManagementDataContext db = new AssetManagementDataContext();
+        AssetManagementDataContext db = new AssetManagementDataContext
+            ();
 
         public _AdminLogin()
         {
             InitializeComponent();
-
-            db = new AssetManagementDataContext(Properties.Settings.Default.Asset_Management_SystemConnectionString);
-
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtEmailAddress.Text.Length > 0)
+            List<AdminLoginResult> result = db.AdminLogin(txtEmailAddress.Text, txtPassword.Password).ToList();
+            if (result.Count > 0 && result[0] != null)
             {
-                if (passComparison(getPassword()))
-                {
-                    MessageBox.Show("Login Success", "Welcome Back!", MessageBoxButton.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Username and/or Password", "Login Failed", MessageBoxButton.OK);
-                }
+                _Home dashboard = new _Home();
+                dashboard.Show();
+                this.Close();
             }
-            else
+            if (result.Count <= 0)
             {
-                MessageBox.Show("Please input a valid password.", "Blank Password", MessageBoxButton.OK);
+                MessageBox.Show("incorrect user or password");
+                txtPassword.Password = "";
+                txtEmailAddress.Text = "";
             }
-
-
-            _Home dashboard = new _Home();
-            dashboard.Show();
-            this.Close();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -61,31 +54,12 @@ namespace Finals_AssetManagementSystem
             this.Close();
         }
 
-        public string getPassword()
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            string uPass = "";
-
-            var users = from s in db.Admins where s.AdminEmail == txtEmailAddress.Text select s;
-
-            if (users.Count() == 1)
+            if (e.Key == Key.Enter)
             {
-                foreach (Admin user in users)
-                {
-                    uPass = user.AdminPW;
-                }
+                btnLogin_Click((object)sender, e);
             }
-            return uPass;
         }
-
-
-        private bool passComparison(string uPass)
-        {
-            if (txtPassword.Password == uPass)
-                return true;
-            else
-                return false;
-        }
-
-
     }
 }

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAS" Class="AssetManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblSupplier" Member="tblSuppliers">
+    <Type Name="tblSupplier">
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierNum" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPersonN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="tblSupplier_tblAsset" Member="tblAssets" ThisKey="SupplierID" OtherKey="SupplierID" Type="tblAsset" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAdmin" Member="tblAdmins">
+    <Type Name="tblAdmin">
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdminFN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminLN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminPW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminEmail" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Association Name="tblAdmin_tblRequestStatus" Member="tblRequestStatus" ThisKey="AdminID" OtherKey="AdminID" Type="tblRequestStatus" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAsset" Member="tblAssets">
+    <Type Name="tblAsset">
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetPurchaseDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AssetStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblAsset_tblBorrowDetail" Member="tblBorrowDetails" ThisKey="AssetID" OtherKey="AssetID" Type="tblBorrowDetail" />
+      <Association Name="tblAsset_tblMaintenanceSchedule" Member="tblMaintenanceSchedules" ThisKey="AssetID" OtherKey="AssetID" Type="tblMaintenanceSchedule" />
+      <Association Name="tblSupplier_tblAsset" Member="tblSupplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="tblSupplier" IsForeignKey="true" />
+      <Association Name="tblLocation_tblAsset" Member="tblLocation" ThisKey="LocationID" OtherKey="LocationID" Type="tblLocation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBorrowDetails" Member="tblBorrowDetails">
+    <Type Name="tblBorrowDetail">
+      <Column Name="BorrowDetailsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BorrowerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RequestedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowPurpose" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReturnBy" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblBorrowDetail_tblRequestStatus" Member="tblRequestStatus" ThisKey="BorrowDetailsID" OtherKey="BorrowDetailsID" Type="tblRequestStatus" />
+      <Association Name="tblAsset_tblBorrowDetail" Member="tblAsset" ThisKey="AssetID" OtherKey="AssetID" Type="tblAsset" IsForeignKey="true" />
+      <Association Name="tblBorrower_tblBorrowDetail" Member="tblBorrower" ThisKey="BorrowerID" OtherKey="BorrowerID" Type="tblBorrower" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBorrower" Member="tblBorrowers">
+    <Type Name="tblBorrower">
+      <Column Name="BorrowerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BorrowerFN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerLN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerPW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerEmail" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerNum" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Association Name="tblBorrower_tblBorrowDetail" Member="tblBorrowDetails" ThisKey="BorrowerID" OtherKey="BorrowerID" Type="tblBorrowDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLocation" Member="tblLocations">
+    <Type Name="tblLocation">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FloorNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblLocation_tblAsset" Member="tblAssets" ThisKey="LocationID" OtherKey="LocationID" Type="tblAsset" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblMaintenanceSchedule" Member="tblMaintenanceSchedules">
+    <Type Name="tblMaintenanceSchedule">
+      <Column Name="MaintScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastMaintDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaintCycle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaintType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaintDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tblAsset_tblMaintenanceSchedule" Member="tblAsset" ThisKey="AssetID" OtherKey="AssetID" Type="tblAsset" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRequestStatus" Member="tblRequestStatus">
+    <Type Name="tblRequestStatus">
+      <Column Name="ReqStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BorrowDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblAdmin_tblRequestStatus" Member="tblAdmin" ThisKey="AdminID" OtherKey="AdminID" Type="tblAdmin" IsForeignKey="true" />
+      <Association Name="tblBorrowDetail_tblRequestStatus" Member="tblBorrowDetail" ThisKey="BorrowDetailsID" OtherKey="BorrowDetailsID" Type="tblBorrowDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AdminLogin" Method="AdminLogin">
+    <Parameter Name="AdminEmail" Parameter="adminEmail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="APW" Parameter="aPW" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="AdminLoginResult">
+      <Column Name="AdminUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BorrowerLogin" Method="BorrowerLogin">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="PW" Parameter="pW" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="BorrowerLoginResult">
+      <Column Name="BorrowerUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

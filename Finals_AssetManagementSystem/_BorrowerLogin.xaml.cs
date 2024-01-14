@@ -25,58 +25,23 @@ namespace Finals_AssetManagementSystem
         public _BorrowerLogin()
         {
             InitializeComponent();
-
-            db = new AssetManagementDataContext(Properties.Settings.Default.Asset_Management_SystemConnectionString);
-
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtEmailAddress.Text.Length > 0)
+            List<BorrowerLoginResult> result = db.BorrowerLogin(txtEmailAddress.Text, txtPassword.Password).ToList();
+            if (result.Count > 0 && result[0] != null)
             {
-                if (passComparison(getPassword()))
-                {
-                    MessageBox.Show("Login Success", "Welcome Back!", MessageBoxButton.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Username and/or Password", "Login Failed", MessageBoxButton.OK);
-                }
+                _Home dashboard = new _Home();
+                dashboard.Show();
+                this.Close();
             }
-            else
+            if (result.Count <= 0)
             {
-                MessageBox.Show("Please input a valid password.", "Blank Password", MessageBoxButton.OK);
+                MessageBox.Show("incorrect user or password");
+                txtPassword.Password = "";
+                txtEmailAddress.Text = "";
             }
-
-            _BorrowAsset borrow = new _BorrowAsset();
-            borrow.Show();
-            this.Close();   
-
-        }
-
-        public string getPassword()
-        {
-            string uPass = "";
-
-            var users = from s in db.Borrowers where s.BorrowerEmail == txtEmailAddress.Text select s;
-
-            if (users.Count() == 1)
-            {
-                foreach (Borrower user in users)
-                {
-                    uPass = user.BorrowerPW;
-                }
-            }
-            return uPass;
-        }
-
-
-        private bool passComparison(string uPass)
-        {
-            if (txtPassword.Password == uPass)
-                return true;
-            else
-                return false;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -84,6 +49,14 @@ namespace Finals_AssetManagementSystem
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogin_Click((object)sender, e);
+            }
         }
     }
 }
