@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Pending Requests" Height="750" Width="810" ResizeMode="NoResize">
+        Title="Pending Requests" Height="750" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="742" Width="827" VerticalAlignment="Center" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>

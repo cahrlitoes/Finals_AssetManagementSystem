@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Maintenance Schedule" Height="750" Width="1500" ResizeMode="NoResize">
+        Title="Maintenance Schedule" Height="750" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="725" Width="731" VerticalAlignment="Top" Fill="#FF872121" RenderTransformOrigin="0.5,0.5" Margin="775,11,0,0">
             <Rectangle.RenderTransform>

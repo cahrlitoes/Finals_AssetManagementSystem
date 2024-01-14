@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Dashboard" Height="680" Width="790" ResizeMode="NoResize">
+        Title="Dashboard" Height="680" Width="790" ResizeMode="CanResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <ImageBrush/>
@@ -53,8 +53,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="461,425,0,0" VerticalAlignment="Top" Width="100" Source="/PendingIcon.png"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="90,213,0,0" VerticalAlignment="Top" Width="100" Source="/AssetIcon.png"/>
         <Label Content="REQUESTS" HorizontalAlignment="Left" Height="28" Margin="575,440,0,0" VerticalAlignment="Top" Width="122" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
-        <Label Content="DATE TODAY" HorizontalAlignment="Left" Height="28" Margin="679,600,0,0" VerticalAlignment="Top" Width="111" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
-        <Label x:Name="AdminName_Copy" Content="0" HorizontalAlignment="Left" Margin="683,628,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" RenderTransformOrigin="0.889,0.613" Width="101"/>
+        <Label x:Name="DateToday" Content="DATE TODAY" HorizontalAlignment="Left" Height="28" Margin="514,586,0,0" VerticalAlignment="Top" Width="183" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
 
     </Grid>
 </Window>

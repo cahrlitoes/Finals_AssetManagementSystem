@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="View Assets" Height="850" Width="870" ResizeMode="NoResize">
+        Title="View Assets" Height="850" Width="870" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="988" Width="871" VerticalAlignment="Top" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5" Margin="0,1,0,0">
             <Rectangle.RenderTransform>

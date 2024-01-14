@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Borrow Assets" Height="855" Width="1000" ResizeMode="NoResize">
+        Title="Borrow Assets" Height="855" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Height="840" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition/>
