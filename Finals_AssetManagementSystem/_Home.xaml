@@ -53,6 +53,6 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="461,425,0,0" VerticalAlignment="Top" Width="100" Source="/PendingIcon.png"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="90,213,0,0" VerticalAlignment="Top" Width="100" Source="/AssetIcon.png"/>
         <Label Content="REQUESTS" HorizontalAlignment="Left" Height="28" Margin="575,440,0,0" VerticalAlignment="Top" Width="122" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
-
+        <Label x:Name="DateToday" Content="DATE TODAY" HorizontalAlignment="Left" Height="28" Margin="431,584,0,0" VerticalAlignment="Top" Width="294" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
     </Grid>
 </Window>
