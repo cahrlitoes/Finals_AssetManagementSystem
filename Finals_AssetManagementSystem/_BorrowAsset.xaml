@@ -43,7 +43,7 @@
         <Label Content="FACULTY" HorizontalAlignment="Left" Margin="788,55,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753" Height="31" Width="72"/>
         <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="695,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" Height="31" Width="165"/>
         <Image Margin="677,-50,-155,678" Source="/UserIcon.png"/>
-        <ListBox x:Name="lbxAvailableItems" Width="573" Height="410" Margin="31,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAvailableItems_SelectionChanged" BorderBrush="White"/>
+        <ListBox x:Name="lbxAvailableItems" Width="400" Height="410" Margin="31,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAvailableItems_SelectionChanged" BorderBrush="White"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White" Height="25"/>
         <TextBox x:Name="txtUserSearch" HorizontalAlignment="Left" Margin="94,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
         <Label Content="AVAILABLE ASSETS" HorizontalAlignment="Left" Margin="26,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="190"/>
