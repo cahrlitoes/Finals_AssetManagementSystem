@@ -98,14 +98,78 @@
     <Parameter Name="AdminEmail" Parameter="adminEmail" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="APW" Parameter="aPW" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="AdminLoginResult">
-      <Column Name="AdminUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminFullName" Type="System.String" DbType="NVarChar(102) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.BorrowerLogin" Method="BorrowerLogin">
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="PW" Parameter="pW" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="BorrowerLoginResult">
-      <Column Name="BorrowerUN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowerFullName" Type="System.String" DbType="NVarChar(102) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.ShowAllAssets" Method="ShowAllAssets">
+    <ElementType Name="ShowAllAssetsResult">
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShowAssetsByFilter" Method="ShowAssetsByFilter">
+    <Parameter Name="Cat" Parameter="cat" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="ShowAssetsByFilterResult">
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShowAssetsBySearchFilter" Method="ShowAssetsBySearchFilter">
+    <Parameter Name="Filter" Parameter="filter" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="ShowAssetsBySearchFilterResult">
+      <Column Name="AssetName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShowAssetInfoByAssetCode" Method="ShowAssetInfoByAssetCode">
+    <Parameter Name="AC" Parameter="aC" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="ShowAssetInfoByAssetCodeResult">
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetStatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FloorNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddDataByBuilding" Method="AddDataByBuilding">
+    <Parameter Name="bldg" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="AddDataByBuildingResult">
+      <Column Name="RoomNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FloorNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddBuildings" Method="AddBuildings">
+    <ElementType Name="AddBuildingsResult">
+      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GrabLocationIDForUpdateViaLocField" Method="GrabLocationIDForUpdateViaLocField">
+    <Parameter Name="RN" Parameter="rN" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FN" Parameter="fN" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BN" Parameter="bN" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="GrabLocationIDForUpdateViaLocFieldResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.updateAssetInformation" Method="updateAssetInformation">
+    <Parameter Name="AS" Parameter="aS" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LID" Parameter="lID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AC" Parameter="aC" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

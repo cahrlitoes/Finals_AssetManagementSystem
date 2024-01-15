@@ -61,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AMS.dbml</DependentUpon>
     </Compile>
+    <Compile Include="StaticClass.cs" />
     <Compile Include="_AddAsset.xaml.cs">
       <DependentUpon>_AddAsset.xaml</DependentUpon>
     </Compile>

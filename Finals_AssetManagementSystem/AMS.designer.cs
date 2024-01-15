@@ -163,6 +163,62 @@ namespace Finals_AssetManagementSystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, pW);
 			return ((ISingleResult<BorrowerLoginResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAllAssets")]
+		public ISingleResult<ShowAllAssetsResult> ShowAllAssets()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ShowAllAssetsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetsByFilter")]
+		public ISingleResult<ShowAssetsByFilterResult> ShowAssetsByFilter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cat", DbType="NVarChar(50)")] string cat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="NVarChar(50)")] string stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cat, stat);
+			return ((ISingleResult<ShowAssetsByFilterResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetsBySearchFilter")]
+		public ISingleResult<ShowAssetsBySearchFilterResult> ShowAssetsBySearchFilter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Filter", DbType="NVarChar(50)")] string filter)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), filter);
+			return ((ISingleResult<ShowAssetsBySearchFilterResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetInfoByAssetCode")]
+		public ISingleResult<ShowAssetInfoByAssetCodeResult> ShowAssetInfoByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AC", DbType="NVarChar(50)")] string aC)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aC);
+			return ((ISingleResult<ShowAssetInfoByAssetCodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddDataByBuilding")]
+		public ISingleResult<AddDataByBuildingResult> AddDataByBuilding([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bldg)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bldg);
+			return ((ISingleResult<AddDataByBuildingResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddBuildings")]
+		public ISingleResult<AddBuildingsResult> AddBuildings()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AddBuildingsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrabLocationIDForUpdateViaLocField")]
+		public ISingleResult<GrabLocationIDForUpdateViaLocFieldResult> GrabLocationIDForUpdateViaLocField([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
+			return ((ISingleResult<GrabLocationIDForUpdateViaLocFieldResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAssetInformation")]
+		public int updateAssetInformation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AS", DbType="NVarChar(50)")] string aS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LID", DbType="Int")] System.Nullable<int> lID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AC", DbType="NVarChar(50)")] string aC)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aS, lID, aC);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSupplier")]
@@ -2107,24 +2163,24 @@ namespace Finals_AssetManagementSystem
 	public partial class AdminLoginResult
 	{
 		
-		private string _AdminUN;
+		private string _AdminFullName;
 		
 		public AdminLoginResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminUN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AdminUN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminFullName", DbType="NVarChar(102) NOT NULL", CanBeNull=false)]
+		public string AdminFullName
 		{
 			get
 			{
-				return this._AdminUN;
+				return this._AdminFullName;
 			}
 			set
 			{
-				if ((this._AdminUN != value))
+				if ((this._AdminFullName != value))
 				{
-					this._AdminUN = value;
+					this._AdminFullName = value;
 				}
 			}
 		}
@@ -2133,24 +2189,476 @@ namespace Finals_AssetManagementSystem
 	public partial class BorrowerLoginResult
 	{
 		
-		private string _BorrowerUN;
+		private string _BorrowerFullName;
 		
 		public BorrowerLoginResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowerUN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BorrowerUN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowerFullName", DbType="NVarChar(102) NOT NULL", CanBeNull=false)]
+		public string BorrowerFullName
 		{
 			get
 			{
-				return this._BorrowerUN;
+				return this._BorrowerFullName;
 			}
 			set
 			{
-				if ((this._BorrowerUN != value))
+				if ((this._BorrowerFullName != value))
 				{
-					this._BorrowerUN = value;
+					this._BorrowerFullName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowAllAssetsResult
+	{
+		
+		private string _AssetName;
+		
+		private string _AssetCode;
+		
+		private string _AssetType;
+		
+		private string _AssetStatus;
+		
+		public ShowAllAssetsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetName
+		{
+			get
+			{
+				return this._AssetName;
+			}
+			set
+			{
+				if ((this._AssetName != value))
+				{
+					this._AssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetType
+		{
+			get
+			{
+				return this._AssetType;
+			}
+			set
+			{
+				if ((this._AssetType != value))
+				{
+					this._AssetType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowAssetsByFilterResult
+	{
+		
+		private string _AssetName;
+		
+		private string _AssetCode;
+		
+		private string _AssetType;
+		
+		private string _AssetStatus;
+		
+		public ShowAssetsByFilterResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetName
+		{
+			get
+			{
+				return this._AssetName;
+			}
+			set
+			{
+				if ((this._AssetName != value))
+				{
+					this._AssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetType
+		{
+			get
+			{
+				return this._AssetType;
+			}
+			set
+			{
+				if ((this._AssetType != value))
+				{
+					this._AssetType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowAssetsBySearchFilterResult
+	{
+		
+		private string _AssetName;
+		
+		private string _AssetCode;
+		
+		private string _AssetType;
+		
+		private string _AssetStatus;
+		
+		public ShowAssetsBySearchFilterResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetName
+		{
+			get
+			{
+				return this._AssetName;
+			}
+			set
+			{
+				if ((this._AssetName != value))
+				{
+					this._AssetName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetType
+		{
+			get
+			{
+				return this._AssetType;
+			}
+			set
+			{
+				if ((this._AssetType != value))
+				{
+					this._AssetType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowAssetInfoByAssetCodeResult
+	{
+		
+		private string _AssetCode;
+		
+		private string _AssetStatus;
+		
+		private string _BldgName;
+		
+		private int _FloorNo;
+		
+		private int _RoomNo;
+		
+		public ShowAssetInfoByAssetCodeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
+		public int FloorNo
+		{
+			get
+			{
+				return this._FloorNo;
+			}
+			set
+			{
+				if ((this._FloorNo != value))
+				{
+					this._FloorNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
+		public int RoomNo
+		{
+			get
+			{
+				return this._RoomNo;
+			}
+			set
+			{
+				if ((this._RoomNo != value))
+				{
+					this._RoomNo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddDataByBuildingResult
+	{
+		
+		private int _RoomNo;
+		
+		private int _FloorNo;
+		
+		private string _BldgName;
+		
+		public AddDataByBuildingResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
+		public int RoomNo
+		{
+			get
+			{
+				return this._RoomNo;
+			}
+			set
+			{
+				if ((this._RoomNo != value))
+				{
+					this._RoomNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
+		public int FloorNo
+		{
+			get
+			{
+				return this._FloorNo;
+			}
+			set
+			{
+				if ((this._FloorNo != value))
+				{
+					this._FloorNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddBuildingsResult
+	{
+		
+		private string _BldgName;
+		
+		public AddBuildingsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GrabLocationIDForUpdateViaLocFieldResult
+	{
+		
+		private int _LocationID;
+		
+		public GrabLocationIDForUpdateViaLocFieldResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
 				}
 			}
 		}

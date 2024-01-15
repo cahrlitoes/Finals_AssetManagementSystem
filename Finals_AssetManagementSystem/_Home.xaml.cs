@@ -27,13 +27,14 @@ namespace Finals_AssetManagementSystem
         {
             InitializeComponent();
             UI_Initialise();
+            AdminName.Content = StaticClass.storestring;
+
         }
 
         private void UI_Initialise()
         {
             DateTime datetime = DateTime.Now;
             var date = datetime;
-            DateToday.Content = "Date Today: " + date;
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
@@ -44,7 +45,6 @@ namespace Finals_AssetManagementSystem
         {
             DateTime datetime = DateTime.Now;
             var date = datetime;
-            DateToday.Content = "Date Today: " + date;
         }
 
         private void btnItems_Click(object sender, RoutedEventArgs e)

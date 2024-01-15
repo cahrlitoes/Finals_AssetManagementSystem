@@ -35,6 +35,7 @@ namespace Finals_AssetManagementSystem
             List<AdminLoginResult> result = db.AdminLogin(txtEmailAddress.Text, txtPassword.Password).ToList();
             if (result.Count > 0 && result[0] != null)
             {
+                StaticClass.storestring = result[0].AdminFullName;
                 _Home dashboard = new _Home();
                 dashboard.Show();
                 this.Close();
