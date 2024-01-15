@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Borrow Assets" Height="855" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Borrow Assets" Height="855" Width="950" ResizeMode="NoResize">
     <Grid Height="840" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <Rectangle RadiusX="5" RadiusY="5" Height="857" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,21,352,0" Grid.RowSpan="2">
+        <Rectangle RadiusX="5" RadiusY="5" Height="857" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,21,477,0" Grid.RowSpan="2">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FFE6AA04" Opacity="1"/>
             </Rectangle.Fill>
@@ -40,22 +40,27 @@
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="112" Width="1000" VerticalAlignment="Top" Fill="#FF720000"/>
         <Label Content="Northville International School" HorizontalAlignment="Left" Height="42" Margin="99,35,0,0" VerticalAlignment="Top" Width="332" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.45,2.623"/>
         <Image HorizontalAlignment="Left" Height="99" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Source="/NorthvilleLogo.png"/>
-        <Label Content="FACULTY" HorizontalAlignment="Left" Margin="788,55,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753" Height="31" Width="72"/>
-        <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="695,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" Height="31" Width="165"/>
-        <Image Margin="677,-50,-155,678" Source="/UserIcon.png"/>
-        <ListBox x:Name="lbxAvailableItems" Width="400" Height="410" Margin="31,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAvailableItems_SelectionChanged" BorderBrush="White"/>
+        <Label Content="FACULTY" HorizontalAlignment="Left" Margin="763,54,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753" Height="32" Width="72"/>
+        <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="670,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" Height="30" Width="165"/>
+        <Image Margin="669,-50,-147,678" Source="/UserIcon.png"/>
+        <ListBox x:Name="lbxAvailableItems" Width="400" Height="472" Margin="31,267,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAvailableItems_SelectionChanged" BorderBrush="White"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtUserSearch" HorizontalAlignment="Left" Margin="94,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
+        <TextBox x:Name="txtUserSearch" HorizontalAlignment="Left" Margin="92,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
         <Label Content="AVAILABLE ASSETS" HorizontalAlignment="Left" Margin="26,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="190"/>
-        <Label Content="REQUEST BORROW ASSETS" HorizontalAlignment="Left" Margin="652,281,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="256"/>
-        <ListBox x:Name="lbxBorrowItems" Width="306" Height="410" Margin="652,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxBorrowItems_SelectionChanged" BorderBrush="White"/>
-        <Label Content="Category" HorizontalAlignment="Left" Margin="26,212,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="25"/>
-        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="94,212,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
+        <Label Content="REQUEST BORROW ASSETS" HorizontalAlignment="Left" Margin="490,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="256"/>
+        <ListBox x:Name="lbxBorrowItems" Width="410" Height="410" Margin="498,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxBorrowItems_SelectionChanged" BorderBrush="White"/>
+        <Label Content="Category" HorizontalAlignment="Left" Margin="24,219,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="25"/>
+        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="92,219,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Button x:Name="btnReturnItems" Content="RETURN ASSETS" HorizontalAlignment="Left" Margin="31,761,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnReturnItems_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
-        <Button x:Name="btnRequestBorrow" Content="REQUEST BORROW" HorizontalAlignment="Left" Margin="805,754,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnRequestBorrow_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
-        <TextBox x:Name="txtUserSearch_Copy" HorizontalAlignment="Left" Margin="490,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
-        <Label Content="Reason for borrowing" HorizontalAlignment="Left" Margin="31,250,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="124" FontWeight="Bold" Foreground="White" Height="26"/>
-        <TextBox x:Name="txtUserSearch_Copy1" HorizontalAlignment="Left" Margin="155,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Height="58" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
-        <Label Content="Date of Return" HorizontalAlignment="Left" Margin="397,254,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="88" FontWeight="Bold" Foreground="White" Height="26"/>
+        <Button x:Name="btnRequestBorrow" Content="REQUEST BORROW" HorizontalAlignment="Left" Margin="758,761,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnRequestBorrow_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
+        <TextBox x:Name="txtUserSearch_Copy" HorizontalAlignment="Left" Margin="588,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
+        <Label Content="Reason for borrowing" HorizontalAlignment="Left" Margin="494,253,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="124" FontWeight="Bold" Foreground="White" Height="26"/>
+        <TextBox x:Name="txtUserSearch_Copy1" HorizontalAlignment="Left" Margin="618,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="58" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
+        <Label Content="Date of Return" HorizontalAlignment="Left" Margin="494,215,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="88" FontWeight="Bold" Foreground="White" Height="26"/>
+        <Label Content="Enter Quantity" HorizontalAlignment="Left" Margin="490,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="90" Foreground="White" Height="24" FontWeight="Bold"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White" Height="25"/>
+        <TextBox x:Name="txtUserSearch_Copy2" HorizontalAlignment="Left" Margin="584,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged"/>
+        <Label Content="Available Quantity" HorizontalAlignment="Left" Margin="678,177,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="108" Foreground="White" Height="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtUserSearch_Copy3" HorizontalAlignment="Left" Margin="789,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtUserSearch_TextChanged" IsEnabled="False"/>
     </Grid>
 </Window>

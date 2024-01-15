@@ -37,11 +37,22 @@ namespace Finals_AssetManagementSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout" +
-            "=30;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-J6LAVJTP\\SQLEXPRESS;Initial Catalog=MAS;Integrated Security=Tr" +
+            "ue;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
         public string MASConnectionString {
             get {
                 return ((string)(this["MASConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-J6LAVJTP\\SQLEXPRESS;Initial Catalog=MAS;Integrated Security=Tr" +
+            "ue;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string MASConnectionString1 {
+            get {
+                return ((string)(this["MASConnectionString1"]));
             }
         }
     }
