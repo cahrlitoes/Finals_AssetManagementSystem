@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Pending Requests" Height="750" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Pending Requests" Height="750" Width="810" ResizeMode="NoResize">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="742" Width="827" VerticalAlignment="Center" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
@@ -26,8 +26,8 @@
         <Label Content="Asset Management System" HorizontalAlignment="Left" Height="40" Margin="99,56,0,0" VerticalAlignment="Top" Width="212" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
         <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="568,56,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753"/>
         <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="535,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <ListBox x:Name="lbxPendingRequest" Width="668" Height="306" Margin="0,176,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxPendingRequests_SelectionChanged" BorderBrush="White"/>
-        <Label Content="PENDING REQUESTS" HorizontalAlignment="Left" Height="28" Margin="64,137,0,0" VerticalAlignment="Top" Width="172" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
+        <ListBox x:Name="lbxPendingRequest" Width="376" Height="306" Margin="388,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxPendingRequests_SelectionChanged" BorderBrush="White"/>
+        <Label Content="BORROWER'S NAME" HorizontalAlignment="Left" Height="28" Margin="33,130,0,0" VerticalAlignment="Top" Width="232" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
         <Label Content="UPDATE REQUEST" HorizontalAlignment="Left" Height="28" Margin="66,495,0,0" VerticalAlignment="Top" Width="168" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
         <Label Content="Request Status ID" HorizontalAlignment="Left" Margin="55,536,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="111" FontWeight="Bold" Foreground="White" Height="25"/>
         <TextBox x:Name="txtRequestStatusID" HorizontalAlignment="Left" Margin="171,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtRequestStatusID_TextChanged" IsEnabled="False"/>
@@ -42,6 +42,8 @@
             </Rectangle.Stroke>
         </Rectangle>
         <Image HorizontalAlignment="Left" Height="204" Margin="643,-46,0,0" VerticalAlignment="Top" Width="236" Source="/UserIcon.png"/>
+        <ListBox x:Name="lbxPendingRequest_Copy" Width="334" Height="306" Margin="33,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxPendingRequests_SelectionChanged" BorderBrush="White"/>
+        <Label Content="PENDING REQUESTS" HorizontalAlignment="Left" Height="28" Margin="388,136,0,0" VerticalAlignment="Top" Width="277" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
 
     </Grid>
 </Window>

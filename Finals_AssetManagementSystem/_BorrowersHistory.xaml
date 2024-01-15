@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Borrowers History" Height="800" Width="900" WindowStartupLocation="CenterScreen">
+        Title="Borrowers History" Height="800" Width="900">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Left" Height="988" Width="463" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="439,21,0,0">
             <Rectangle.Fill>
@@ -42,11 +42,12 @@
         <Label Content="Search" HorizontalAlignment="Left" Margin="30,188,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White"/>
         <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="85,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtSearch_TextChanged"/>
         <Label Content="BORROWER'S NAME" HorizontalAlignment="Left" Margin="34,144,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White"/>
-        <Label Content="USER BORROWED ASSET HISTORY" HorizontalAlignment="Left" Margin="453,183,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White"/>
+        <Label Content="USER BORROWED ASSET HISTORY" HorizontalAlignment="Left" Margin="453,152,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White"/>
         <Button x:Name="btnHome" HorizontalAlignment="Left" VerticalAlignment="Top" Height="112" Width="99" Background="#FF720000" BorderBrush="#FF720000" Click="btnHome_Click" Style="{StaticResource RoundedDefault}">
             <Image Height="100" Width="100" Source="/NorthvilleLogo.png"/>
         </Button>
         <Image HorizontalAlignment="Left" Height="187" Margin="747,-35,0,0" VerticalAlignment="Top" Width="182" Source="/UserIcon.png"/>
+        <CheckBox x:Name="ckbReturnedAssets" Content="Returned Assets" HorizontalAlignment="Left" Margin="459,201,0,0" VerticalAlignment="Top" Width="128" Foreground="White" FontWeight="Bold" BorderBrush="White" FontSize="13" RenderTransformOrigin="0.53,-0.299"/>
 
     </Grid>
 </Window>

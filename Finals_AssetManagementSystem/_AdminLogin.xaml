@@ -20,15 +20,15 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="350" Width="484" VerticalAlignment="Center" Fill="#FF720000" Grid.ColumnSpan="2"/>
-        <Label Content="Email Address" HorizontalAlignment="Left" Margin="13,224,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="13,286,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
-        <TextBox x:Name="txtEmailAddress" HorizontalAlignment="Left" Margin="13,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="30" Style="{StaticResource RoundedTB}" Grid.Column="1"/>
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="30" Margin="13,312,0,0" Style="{StaticResource RoundedPB}" Grid.Column="1"/>
-        <Image Margin="94,34,176,242" Source="/UserIcon.png" Grid.Column="1"/>
-        <Button x:Name="btnSignIn" Content="SIGN IN" HorizontalAlignment="Left" Margin="318,360,0,0" VerticalAlignment="Top" Height="30" Width="95" Background="#FFE6AA04" Foreground="White" Click="btnLogin_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" Grid.Column="1"/>
-        <Label Content="ADMINISTRATOR LOGIN" HorizontalAlignment="Left" Margin="111,179,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1"/>
+        <Label Content="Email Address" HorizontalAlignment="Left" Margin="8,225,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="8,286,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
+        <TextBox x:Name="txtEmailAddress" HorizontalAlignment="Left" Margin="8,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="30" Style="{StaticResource RoundedTB}" Grid.Column="1"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="30" Margin="8,311,0,0" Style="{StaticResource RoundedPB}" Grid.Column="1"/>
+        <Image Margin="89,36,181,240" Source="/UserIcon.png" Grid.Column="1"/>
+        <Button x:Name="btnSignIn" Content="SIGN IN" HorizontalAlignment="Left" Margin="313,360,0,0" VerticalAlignment="Top" Height="30" Width="95" Background="#FFE6AA04" Foreground="White" Click="btnLogin_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" Grid.Column="1"/>
+        <Label Content="ADMINISTRATOR LOGIN" HorizontalAlignment="Left" Margin="106,184,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Height="86" Margin="68,67,0,0" VerticalAlignment="Top" Width="74" Source="/NorthvilleLogo.png" Opacity="0.6" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnBack" Content="BACK" HorizontalAlignment="Left" Margin="13,360,0,0" VerticalAlignment="Top" Height="30" Width="82" Background="#FFE6AA04" Foreground="White" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" Click="btnBack_Click" Grid.Column="1"/>
+        <Button x:Name="btnBack" Content="BACK" HorizontalAlignment="Left" Margin="8,360,0,0" VerticalAlignment="Top" Height="30" Width="82" Background="#FFE6AA04" Foreground="White" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" Click="btnBack_Click" Grid.Column="1"/>
 
     </Grid>
 </Window>
