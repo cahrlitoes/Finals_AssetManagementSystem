@@ -42,22 +42,22 @@ namespace Finals_AssetManagementSystem
     partial void InserttblBorrower(tblBorrower instance);
     partial void UpdatetblBorrower(tblBorrower instance);
     partial void DeletetblBorrower(tblBorrower instance);
-    partial void InserttblRequestStatus(tblRequestStatus instance);
-    partial void UpdatetblRequestStatus(tblRequestStatus instance);
-    partial void DeletetblRequestStatus(tblRequestStatus instance);
-    partial void InserttblMaintenanceSchedule(tblMaintenanceSchedule instance);
-    partial void UpdatetblMaintenanceSchedule(tblMaintenanceSchedule instance);
-    partial void DeletetblMaintenanceSchedule(tblMaintenanceSchedule instance);
     partial void InserttblLocation(tblLocation instance);
     partial void UpdatetblLocation(tblLocation instance);
     partial void DeletetblLocation(tblLocation instance);
+    partial void InserttblMaintenanceSchedule(tblMaintenanceSchedule instance);
+    partial void UpdatetblMaintenanceSchedule(tblMaintenanceSchedule instance);
+    partial void DeletetblMaintenanceSchedule(tblMaintenanceSchedule instance);
+    partial void InserttblRequestStatus(tblRequestStatus instance);
+    partial void UpdatetblRequestStatus(tblRequestStatus instance);
+    partial void DeletetblRequestStatus(tblRequestStatus instance);
     partial void InserttblSupplier(tblSupplier instance);
     partial void UpdatetblSupplier(tblSupplier instance);
     partial void DeletetblSupplier(tblSupplier instance);
     #endregion
 		
 		public AssetManagementDataContext() : 
-				base(global::Finals_AssetManagementSystem.Properties.Settings.Default.MASConnectionString2, mappingSource)
+				base(global::Finals_AssetManagementSystem.Properties.Settings.Default.MASConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -118,11 +118,11 @@ namespace Finals_AssetManagementSystem
 			}
 		}
 		
-		public System.Data.Linq.Table<tblRequestStatus> tblRequestStatus
+		public System.Data.Linq.Table<tblLocation> tblLocations
 		{
 			get
 			{
-				return this.GetTable<tblRequestStatus>();
+				return this.GetTable<tblLocation>();
 			}
 		}
 		
@@ -134,11 +134,11 @@ namespace Finals_AssetManagementSystem
 			}
 		}
 		
-		public System.Data.Linq.Table<tblLocation> tblLocations
+		public System.Data.Linq.Table<tblRequestStatus> tblRequestStatus
 		{
 			get
 			{
-				return this.GetTable<tblLocation>();
+				return this.GetTable<tblRequestStatus>();
 			}
 		}
 		
@@ -185,18 +185,18 @@ namespace Finals_AssetManagementSystem
 			return ((ISingleResult<BorrowerLoginResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertAsset")]
-		public int InsertAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="VarChar(255)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="VarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(255)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="NVarChar(50)")] string type)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, date, status, type);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrabLocationIDForUpdateViaLocField")]
 		public ISingleResult<GrabLocationIDForUpdateViaLocFieldResult> GrabLocationIDForUpdateViaLocField([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
 			return ((ISingleResult<GrabLocationIDForUpdateViaLocFieldResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertAsset")]
+		public int InsertAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="VarChar(255)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="VarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(255)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="NVarChar(50)")] string type)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, date, status, type);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSupplier")]
@@ -1442,174 +1442,132 @@ namespace Finals_AssetManagementSystem
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRequestStatus")]
-	public partial class tblRequestStatus : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLocation")]
+	public partial class tblLocation : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ReqStatusID;
+		private int _LocationID;
 		
-		private int _BorrowDetailsID;
+		private int _RoomNo;
 		
-		private System.Nullable<int> _AdminID;
+		private int _FloorNo;
 		
-		private EntityRef<tblAdmin> _tblAdmin;
+		private string _BldgName;
 		
-		private EntityRef<tblBorrowDetail> _tblBorrowDetail;
+		private EntitySet<tblAsset> _tblAssets;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnReqStatusIDChanging(int value);
-    partial void OnReqStatusIDChanged();
-    partial void OnBorrowDetailsIDChanging(int value);
-    partial void OnBorrowDetailsIDChanged();
-    partial void OnAdminIDChanging(System.Nullable<int> value);
-    partial void OnAdminIDChanged();
+    partial void OnLocationIDChanging(int value);
+    partial void OnLocationIDChanged();
+    partial void OnRoomNoChanging(int value);
+    partial void OnRoomNoChanged();
+    partial void OnFloorNoChanging(int value);
+    partial void OnFloorNoChanged();
+    partial void OnBldgNameChanging(string value);
+    partial void OnBldgNameChanged();
     #endregion
 		
-		public tblRequestStatus()
+		public tblLocation()
 		{
-			this._tblAdmin = default(EntityRef<tblAdmin>);
-			this._tblBorrowDetail = default(EntityRef<tblBorrowDetail>);
+			this._tblAssets = new EntitySet<tblAsset>(new Action<tblAsset>(this.attach_tblAssets), new Action<tblAsset>(this.detach_tblAssets));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStatusID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ReqStatusID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LocationID
 		{
 			get
 			{
-				return this._ReqStatusID;
+				return this._LocationID;
 			}
 			set
 			{
-				if ((this._ReqStatusID != value))
+				if ((this._LocationID != value))
 				{
-					this.OnReqStatusIDChanging(value);
+					this.OnLocationIDChanging(value);
 					this.SendPropertyChanging();
-					this._ReqStatusID = value;
-					this.SendPropertyChanged("ReqStatusID");
-					this.OnReqStatusIDChanged();
+					this._LocationID = value;
+					this.SendPropertyChanged("LocationID");
+					this.OnLocationIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowDetailsID", DbType="Int NOT NULL")]
-		public int BorrowDetailsID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
+		public int RoomNo
 		{
 			get
 			{
-				return this._BorrowDetailsID;
+				return this._RoomNo;
 			}
 			set
 			{
-				if ((this._BorrowDetailsID != value))
+				if ((this._RoomNo != value))
 				{
-					if (this._tblBorrowDetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBorrowDetailsIDChanging(value);
+					this.OnRoomNoChanging(value);
 					this.SendPropertyChanging();
-					this._BorrowDetailsID = value;
-					this.SendPropertyChanged("BorrowDetailsID");
-					this.OnBorrowDetailsIDChanged();
+					this._RoomNo = value;
+					this.SendPropertyChanged("RoomNo");
+					this.OnRoomNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", DbType="Int")]
-		public System.Nullable<int> AdminID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
+		public int FloorNo
 		{
 			get
 			{
-				return this._AdminID;
+				return this._FloorNo;
 			}
 			set
 			{
-				if ((this._AdminID != value))
+				if ((this._FloorNo != value))
 				{
-					if (this._tblAdmin.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAdminIDChanging(value);
+					this.OnFloorNoChanging(value);
 					this.SendPropertyChanging();
-					this._AdminID = value;
-					this.SendPropertyChanged("AdminID");
-					this.OnAdminIDChanged();
+					this._FloorNo = value;
+					this.SendPropertyChanged("FloorNo");
+					this.OnFloorNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblAdmin_tblRequestStatus", Storage="_tblAdmin", ThisKey="AdminID", OtherKey="AdminID", IsForeignKey=true)]
-		public tblAdmin tblAdmin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
 		{
 			get
 			{
-				return this._tblAdmin.Entity;
+				return this._BldgName;
 			}
 			set
 			{
-				tblAdmin previousValue = this._tblAdmin.Entity;
-				if (((previousValue != value) 
-							|| (this._tblAdmin.HasLoadedOrAssignedValue == false)))
+				if ((this._BldgName != value))
 				{
+					this.OnBldgNameChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblAdmin.Entity = null;
-						previousValue.tblRequestStatus.Remove(this);
-					}
-					this._tblAdmin.Entity = value;
-					if ((value != null))
-					{
-						value.tblRequestStatus.Add(this);
-						this._AdminID = value.AdminID;
-					}
-					else
-					{
-						this._AdminID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tblAdmin");
+					this._BldgName = value;
+					this.SendPropertyChanged("BldgName");
+					this.OnBldgNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblBorrowDetail_tblRequestStatus", Storage="_tblBorrowDetail", ThisKey="BorrowDetailsID", OtherKey="BorrowDetailsID", IsForeignKey=true)]
-		public tblBorrowDetail tblBorrowDetail
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLocation_tblAsset", Storage="_tblAssets", ThisKey="LocationID", OtherKey="LocationID")]
+		public EntitySet<tblAsset> tblAssets
 		{
 			get
 			{
-				return this._tblBorrowDetail.Entity;
+				return this._tblAssets;
 			}
 			set
 			{
-				tblBorrowDetail previousValue = this._tblBorrowDetail.Entity;
-				if (((previousValue != value) 
-							|| (this._tblBorrowDetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblBorrowDetail.Entity = null;
-						previousValue.tblRequestStatus.Remove(this);
-					}
-					this._tblBorrowDetail.Entity = value;
-					if ((value != null))
-					{
-						value.tblRequestStatus.Add(this);
-						this._BorrowDetailsID = value.BorrowDetailsID;
-					}
-					else
-					{
-						this._BorrowDetailsID = default(int);
-					}
-					this.SendPropertyChanged("tblBorrowDetail");
-				}
+				this._tblAssets.Assign(value);
 			}
 		}
 		
@@ -1631,6 +1589,18 @@ namespace Finals_AssetManagementSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tblAssets(tblAsset entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLocation = this;
+		}
+		
+		private void detach_tblAssets(tblAsset entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLocation = null;
 		}
 	}
 	
@@ -1857,132 +1827,174 @@ namespace Finals_AssetManagementSystem
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLocation")]
-	public partial class tblLocation : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblRequestStatus")]
+	public partial class tblRequestStatus : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _LocationID;
+		private int _ReqStatusID;
 		
-		private int _RoomNo;
+		private int _BorrowDetailsID;
 		
-		private int _FloorNo;
+		private System.Nullable<int> _AdminID;
 		
-		private string _BldgName;
+		private EntityRef<tblAdmin> _tblAdmin;
 		
-		private EntitySet<tblAsset> _tblAssets;
+		private EntityRef<tblBorrowDetail> _tblBorrowDetail;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnLocationIDChanging(int value);
-    partial void OnLocationIDChanged();
-    partial void OnRoomNoChanging(int value);
-    partial void OnRoomNoChanged();
-    partial void OnFloorNoChanging(int value);
-    partial void OnFloorNoChanged();
-    partial void OnBldgNameChanging(string value);
-    partial void OnBldgNameChanged();
+    partial void OnReqStatusIDChanging(int value);
+    partial void OnReqStatusIDChanged();
+    partial void OnBorrowDetailsIDChanging(int value);
+    partial void OnBorrowDetailsIDChanged();
+    partial void OnAdminIDChanging(System.Nullable<int> value);
+    partial void OnAdminIDChanged();
     #endregion
 		
-		public tblLocation()
+		public tblRequestStatus()
 		{
-			this._tblAssets = new EntitySet<tblAsset>(new Action<tblAsset>(this.attach_tblAssets), new Action<tblAsset>(this.detach_tblAssets));
+			this._tblAdmin = default(EntityRef<tblAdmin>);
+			this._tblBorrowDetail = default(EntityRef<tblBorrowDetail>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LocationID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStatusID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ReqStatusID
 		{
 			get
 			{
-				return this._LocationID;
+				return this._ReqStatusID;
 			}
 			set
 			{
-				if ((this._LocationID != value))
+				if ((this._ReqStatusID != value))
 				{
-					this.OnLocationIDChanging(value);
+					this.OnReqStatusIDChanging(value);
 					this.SendPropertyChanging();
-					this._LocationID = value;
-					this.SendPropertyChanged("LocationID");
-					this.OnLocationIDChanged();
+					this._ReqStatusID = value;
+					this.SendPropertyChanged("ReqStatusID");
+					this.OnReqStatusIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
-		public int RoomNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowDetailsID", DbType="Int NOT NULL")]
+		public int BorrowDetailsID
 		{
 			get
 			{
-				return this._RoomNo;
+				return this._BorrowDetailsID;
 			}
 			set
 			{
-				if ((this._RoomNo != value))
+				if ((this._BorrowDetailsID != value))
 				{
-					this.OnRoomNoChanging(value);
+					if (this._tblBorrowDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBorrowDetailsIDChanging(value);
 					this.SendPropertyChanging();
-					this._RoomNo = value;
-					this.SendPropertyChanged("RoomNo");
-					this.OnRoomNoChanged();
+					this._BorrowDetailsID = value;
+					this.SendPropertyChanged("BorrowDetailsID");
+					this.OnBorrowDetailsIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
-		public int FloorNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", DbType="Int")]
+		public System.Nullable<int> AdminID
 		{
 			get
 			{
-				return this._FloorNo;
+				return this._AdminID;
 			}
 			set
 			{
-				if ((this._FloorNo != value))
+				if ((this._AdminID != value))
 				{
-					this.OnFloorNoChanging(value);
+					if (this._tblAdmin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAdminIDChanging(value);
 					this.SendPropertyChanging();
-					this._FloorNo = value;
-					this.SendPropertyChanged("FloorNo");
-					this.OnFloorNoChanged();
+					this._AdminID = value;
+					this.SendPropertyChanged("AdminID");
+					this.OnAdminIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BldgName
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblAdmin_tblRequestStatus", Storage="_tblAdmin", ThisKey="AdminID", OtherKey="AdminID", IsForeignKey=true)]
+		public tblAdmin tblAdmin
 		{
 			get
 			{
-				return this._BldgName;
+				return this._tblAdmin.Entity;
 			}
 			set
 			{
-				if ((this._BldgName != value))
+				tblAdmin previousValue = this._tblAdmin.Entity;
+				if (((previousValue != value) 
+							|| (this._tblAdmin.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnBldgNameChanging(value);
 					this.SendPropertyChanging();
-					this._BldgName = value;
-					this.SendPropertyChanged("BldgName");
-					this.OnBldgNameChanged();
+					if ((previousValue != null))
+					{
+						this._tblAdmin.Entity = null;
+						previousValue.tblRequestStatus.Remove(this);
+					}
+					this._tblAdmin.Entity = value;
+					if ((value != null))
+					{
+						value.tblRequestStatus.Add(this);
+						this._AdminID = value.AdminID;
+					}
+					else
+					{
+						this._AdminID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblAdmin");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLocation_tblAsset", Storage="_tblAssets", ThisKey="LocationID", OtherKey="LocationID")]
-		public EntitySet<tblAsset> tblAssets
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblBorrowDetail_tblRequestStatus", Storage="_tblBorrowDetail", ThisKey="BorrowDetailsID", OtherKey="BorrowDetailsID", IsForeignKey=true)]
+		public tblBorrowDetail tblBorrowDetail
 		{
 			get
 			{
-				return this._tblAssets;
+				return this._tblBorrowDetail.Entity;
 			}
 			set
 			{
-				this._tblAssets.Assign(value);
+				tblBorrowDetail previousValue = this._tblBorrowDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._tblBorrowDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblBorrowDetail.Entity = null;
+						previousValue.tblRequestStatus.Remove(this);
+					}
+					this._tblBorrowDetail.Entity = value;
+					if ((value != null))
+					{
+						value.tblRequestStatus.Add(this);
+						this._BorrowDetailsID = value.BorrowDetailsID;
+					}
+					else
+					{
+						this._BorrowDetailsID = default(int);
+					}
+					this.SendPropertyChanged("tblBorrowDetail");
+				}
 			}
 		}
 		
@@ -2004,18 +2016,6 @@ namespace Finals_AssetManagementSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tblAssets(tblAsset entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblLocation = this;
-		}
-		
-		private void detach_tblAssets(tblAsset entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblLocation = null;
 		}
 	}
 	

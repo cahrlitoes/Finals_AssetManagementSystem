@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAS" Class="AssetManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CAHRLOS-ASUS1\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CAHRLOS-ASUS1\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAdmin" Member="tblAdmins">
     <Type Name="tblAdmin">
       <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -56,13 +56,13 @@
       <Association Name="tblBorrower_tblBorrowDetail" Member="tblBorrowDetails" ThisKey="BorrowerID" OtherKey="BorrowerID" Type="tblBorrowDetail" />
     </Type>
   </Table>
-  <Table Name="dbo.tblRequestStatus" Member="tblRequestStatus">
-    <Type Name="tblRequestStatus">
-      <Column Name="ReqStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BorrowDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tblAdmin_tblRequestStatus" Member="tblAdmin" ThisKey="AdminID" OtherKey="AdminID" Type="tblAdmin" IsForeignKey="true" />
-      <Association Name="tblBorrowDetail_tblRequestStatus" Member="tblBorrowDetail" ThisKey="BorrowDetailsID" OtherKey="BorrowDetailsID" Type="tblBorrowDetail" IsForeignKey="true" />
+  <Table Name="dbo.tblLocation" Member="tblLocations">
+    <Type Name="tblLocation">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FloorNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblLocation_tblAsset" Member="tblAssets" ThisKey="LocationID" OtherKey="LocationID" Type="tblAsset" />
     </Type>
   </Table>
   <Table Name="dbo.tblMaintenanceSchedule" Member="tblMaintenanceSchedules">
@@ -76,13 +76,13 @@
       <Association Name="tblAsset_tblMaintenanceSchedule" Member="tblAsset" ThisKey="AssetID" OtherKey="AssetID" Type="tblAsset" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblLocation" Member="tblLocations">
-    <Type Name="tblLocation">
-      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RoomNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FloorNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BldgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="tblLocation_tblAsset" Member="tblAssets" ThisKey="LocationID" OtherKey="LocationID" Type="tblAsset" />
+  <Table Name="dbo.tblRequestStatus" Member="tblRequestStatus">
+    <Type Name="tblRequestStatus">
+      <Column Name="ReqStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BorrowDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblAdmin_tblRequestStatus" Member="tblAdmin" ThisKey="AdminID" OtherKey="AdminID" Type="tblAdmin" IsForeignKey="true" />
+      <Association Name="tblBorrowDetail_tblRequestStatus" Member="tblBorrowDetail" ThisKey="BorrowDetailsID" OtherKey="BorrowDetailsID" Type="tblBorrowDetail" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblSupplier" Member="tblSuppliers">
@@ -129,14 +129,6 @@
       <Column Name="BorrowerFullName" Type="System.String" DbType="NVarChar(102) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.InsertAsset" Method="InsertAsset">
-    <Parameter Name="AssetName" Parameter="assetName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="AssetCode" Parameter="assetCode" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.GrabLocationIDForUpdateViaLocField" Method="GrabLocationIDForUpdateViaLocField">
     <Parameter Name="RN" Parameter="rN" Type="System.Int32" DbType="Int" />
     <Parameter Name="FN" Parameter="fN" Type="System.Int32" DbType="Int" />
@@ -144,6 +136,14 @@
     <ElementType Name="GrabLocationIDForUpdateViaLocFieldResult">
       <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.InsertAsset" Method="InsertAsset">
+    <Parameter Name="AssetName" Parameter="assetName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="AssetCode" Parameter="assetCode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.InsertSupplier" Method="InsertSupplier">
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
