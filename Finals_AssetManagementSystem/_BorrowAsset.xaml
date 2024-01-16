@@ -62,5 +62,6 @@
         <TextBox x:Name="txtEnterQty" HorizontalAlignment="Left" Margin="584,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Available Quantity" HorizontalAlignment="Left" Margin="678,177,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="108" Foreground="White" Height="24" FontWeight="Bold"/>
         <TextBox x:Name="txtAvailableQty" HorizontalAlignment="Left" Margin="789,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="26" Style="{StaticResource RoundedTB}" FontSize="10"  IsEnabled="False"/>
+        <Button x:Name="ViewBtn" Content="VIEW REQUEST" HorizontalAlignment="Left" Margin="593,761,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="#FF720000" Foreground="#FFFAFAFA"  Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14" RenderTransformOrigin="0.497,0.838"/>
     </Grid>
 </Window>

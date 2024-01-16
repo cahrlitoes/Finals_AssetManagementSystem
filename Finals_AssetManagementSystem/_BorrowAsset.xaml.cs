@@ -44,6 +44,11 @@ namespace Finals_AssetManagementSystem
             }
         }
 
+        private void fillborrow() //Missing USP for selecting all of the borrowers as well as inserting!!! 
+        {
+
+        }
+
         private void btnReturnItems_Click(object sender, RoutedEventArgs e)
         {
             _ReturnAsset returnItems = new _ReturnAsset();
