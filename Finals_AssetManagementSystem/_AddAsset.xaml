@@ -45,11 +45,11 @@
         <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" Height="26" Margin="496,262,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="ASSET LOCATION" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Label Content="Room No." HorizontalAlignment="Left" Margin="40,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbRoomNo" HorizontalAlignment="Left" Height="26" Margin="108,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
+        <ComboBox x:Name="cbRoomNo" HorizontalAlignment="Left" Height="26" Margin="108,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="cbRoomNo_SelectionChanged"/>
         <Label Content="Floor No." HorizontalAlignment="Left" Margin="288,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbFloorNo" HorizontalAlignment="Left" Height="26" Margin="356,420,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
+        <ComboBox x:Name="cbFloorNo" HorizontalAlignment="Left" Height="26" Margin="356,420,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="cbFloorNo_SelectionChanged"/>
         <Label Content="Building Name" HorizontalAlignment="Left" Margin="520,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="96" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbBuildingName" HorizontalAlignment="Left" Height="26" Margin="618,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
+        <ComboBox x:Name="cbBuildingName" HorizontalAlignment="Left" Height="26" Margin="618,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="cbBuildingName_SelectionChanged"/>
         <Label Content="SUPPLIER" HorizontalAlignment="Left" Margin="41,482,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Rectangle HorizontalAlignment="Center" Height="159" Margin="0,475,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
         <Label Content="Supplier Name" HorizontalAlignment="Left" Margin="36,538,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="92" FontWeight="Bold" Foreground="White" Height="26"/>
@@ -59,7 +59,7 @@
         <Label Content="Contact Person Name" HorizontalAlignment="Left" Margin="36,589,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="127" FontWeight="Bold" Foreground="White" Height="25"/>
         <Label Content="Contact Num." HorizontalAlignment="Left" Margin="423,541,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="92" FontWeight="Bold" Foreground="White" Height="25"/>
         <Rectangle HorizontalAlignment="Center" Height="168" Margin="0,639,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
-        <Button x:Name="btnSave" Content="SAVE" HorizontalAlignment="Left" Margin="644,651,0,0" VerticalAlignment="Top" Height="41" Width="118" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnSave_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
+        <Button x:Name="btnSave" Content="ADDED" HorizontalAlignment="Left" Margin="644,651,0,0" VerticalAlignment="Top" Height="41" Width="118" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnSave_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
         <Button x:Name="btnBack" Content="BACK" HorizontalAlignment="Left" Margin="40,651,0,0" VerticalAlignment="Top" Height="41" Width="123" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnBack_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
 
     </Grid>
