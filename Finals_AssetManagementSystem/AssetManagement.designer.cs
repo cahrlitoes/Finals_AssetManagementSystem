@@ -219,6 +219,27 @@ namespace Finals_AssetManagementSystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aS, lID, aC);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllLocations")]
+		public ISingleResult<AllLocationsResult> AllLocations()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AllLocationsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSupplier")]
+		public int InsertSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Number", DbType="NVarChar(50)")] string number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactPersoN", DbType="NVarChar(50)")] string contactPersoN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, number, contactPersoN);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertAsset")]
+		public int InsertAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="VarChar(255)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="VarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(255)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="NVarChar(50)")] string type)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, date, status, type);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAdmin")]
@@ -2659,6 +2680,86 @@ namespace Finals_AssetManagementSystem
 				if ((this._AssetStatus != value))
 				{
 					this._AssetStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllLocationsResult
+	{
+		
+		private int _LocationID;
+		
+		private int _RoomNo;
+		
+		private int _FloorNo;
+		
+		private string _BldgName;
+		
+		public AllLocationsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
+		public int RoomNo
+		{
+			get
+			{
+				return this._RoomNo;
+			}
+			set
+			{
+				if ((this._RoomNo != value))
+				{
+					this._RoomNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
+		public int FloorNo
+		{
+			get
+			{
+				return this._FloorNo;
+			}
+			set
+			{
+				if ((this._FloorNo != value))
+				{
+					this._FloorNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
 				}
 			}
 		}

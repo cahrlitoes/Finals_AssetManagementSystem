@@ -26,28 +26,7 @@ namespace Finals_AssetManagementSystem
         public _Assets()
         {
             InitializeComponent();
-            if (txtSearch.Text.Length > 0)
-            {
-                AdminName.Content = StaticClass.storestring;
-                int x = 0;
-                List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
-                foreach (var item in showAllAssetsResults)
-                {
-                    lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
-                    x++;
-                }
-            }
-            else if (txtSearch.Text.Length == 0)
-            {
-                List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
-                int y = 0;
-                foreach (var item in showAllAssetsResults)
-                {
-                    lbxAllItems.Items.Add(lbxAllItems.Items.Add(showAllAssetsResults[y].AssetName + "\t\t" + showAllAssetsResults[y].AssetCode + "\t\t" + showAllAssetsResults[y].AssetType + "\t\t" + showAllAssetsResults[y].AssetStatus));
-                    y++;
-                }
-            }
-
+            fill();
         }
 
         private void updateListbox()
@@ -78,11 +57,6 @@ namespace Finals_AssetManagementSystem
            updateListbox();
         }
 
-        //private void lbxAllItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    db.ShowAllAssets();
-        //}
-
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
             _AddAsset add = new _AddAsset();
@@ -105,7 +79,17 @@ namespace Finals_AssetManagementSystem
             home.Show();
             this.Close();   
         }
-
+        private void fill()
+        {
+             AdminName.Content = StaticClass.storestring;
+            int x = 0;
+            List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
+            foreach (var item in showAllAssetsResults)
+            {
+                lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
+                x++;
+            }
+        }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
             cbCategory.SelectedIndex = -1;
@@ -113,15 +97,24 @@ namespace Finals_AssetManagementSystem
             if (e.Key == Key.Enter)
             {
                 lbxAllItems.Items.Clear();
-                string filter = txtSearch.Text;
-                List<ShowAssetsBySearchFilterResult> showAssetsBySearchFiltersResults = db.ShowAssetsBySearchFilter(filter).ToList();
-                for (int x = 0; x < showAssetsBySearchFiltersResults.Count; x++)
+                if (txtSearch.Text.Length > 0 ) 
                 {
-                    lbxAllItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                    string filter = txtSearch.Text;
+                    List<ShowAssetsBySearchFilterResult> showAssetsBySearchFiltersResults = db.ShowAssetsBySearchFilter(filter).ToList();
+                    for (int x = 0; x < showAssetsBySearchFiltersResults.Count; x++)
+                    {
+                        lbxAllItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                    }
                 }
+                else
+                {
+                    fill();
+                }
+                
             }
-            
-           
+
+          
+
         }
     }
 }

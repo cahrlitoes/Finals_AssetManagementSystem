@@ -22,7 +22,7 @@
         <Label Content="Northville International School" HorizontalAlignment="Left" Height="42" Margin="99,35,0,0" VerticalAlignment="Top" Width="332" Foreground="#FFE6AA04" FontWeight="Bold" FontSize="22" RenderTransformOrigin="0.45,2.623"/>
         <Label Content="ADMINISTRATOR" HorizontalAlignment="Left" Margin="622,56,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" RenderTransformOrigin="0.911,0.753"/>
         <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="589,35,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <ListBox x:Name="lbxAllItems" Width="771" Height="493" Margin="54,234,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxAllItems_SelectionChanged" BorderBrush="White"/>
+        <ListBox x:Name="lbxAllItems" Width="771" Height="493" Margin="54,234,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" BorderBrush="White"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="54,190,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White"/>
         <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="110,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" BorderBrush="White" KeyUp="txtSearch_KeyUp"/>
         <Label Content="ALL ASSETS" HorizontalAlignment="Left" Margin="58,137,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="144" FontWeight="Bold" Foreground="White" FontSize="24"/>

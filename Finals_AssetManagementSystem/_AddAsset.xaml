@@ -38,18 +38,18 @@
         <TextBox x:Name="txtAssetCode" HorizontalAlignment="Left" Margin="121,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Category" HorizontalAlignment="Left" Margin="40,303,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
         <Rectangle HorizontalAlignment="Center" Height="120" Margin="0,350,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
-        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="121,303,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxCategory_SelectionChanged"/>
+        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="121,303,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="Purchase Date" HorizontalAlignment="Left" Margin="406,217,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="85" FontWeight="Bold" Foreground="White" Height="24"/>
         <TextBox x:Name="txtPurchaseDate" HorizontalAlignment="Left" Margin="496,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Status" HorizontalAlignment="Left" Margin="406,262,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="44" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" Height="26" Margin="496,262,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxStatus_SelectionChanged"/>
+        <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" Height="26" Margin="496,262,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="ASSET LOCATION" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Label Content="Room No." HorizontalAlignment="Left" Margin="40,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbRoomNo" HorizontalAlignment="Left" Height="26" Margin="108,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxRoomNo_SelectionChanged"/>
+        <ComboBox x:Name="cbRoomNo" HorizontalAlignment="Left" Height="26" Margin="108,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="Floor No." HorizontalAlignment="Left" Margin="288,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbFloorNo" HorizontalAlignment="Left" Height="26" Margin="356,420,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxFloorNo_SelectionChanged"/>
+        <ComboBox x:Name="cbFloorNo" HorizontalAlignment="Left" Height="26" Margin="356,420,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="Building Name" HorizontalAlignment="Left" Margin="520,422,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="96" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbBuildingName" HorizontalAlignment="Left" Height="26" Margin="618,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxBuildingName_SelectionChanged"/>
+        <ComboBox x:Name="cbBuildingName" HorizontalAlignment="Left" Height="26" Margin="618,422,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White"/>
         <Label Content="SUPPLIER" HorizontalAlignment="Left" Margin="41,482,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Rectangle HorizontalAlignment="Center" Height="159" Margin="0,475,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
         <Label Content="Supplier Name" HorizontalAlignment="Left" Margin="36,538,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="92" FontWeight="Bold" Foreground="White" Height="26"/>

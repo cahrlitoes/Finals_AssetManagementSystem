@@ -12,7 +12,7 @@ namespace Finals_AssetManagementSystem.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -27,7 +27,7 @@ namespace Finals_AssetManagementSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CAHRLOS-ASUS1\\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=T" +
-            "rue;Connect Timeout=30;Trust Server Certificate=True")]
+            "rue;Connect Timeout=30;TrustServerCertificate=True")]
         public string Asset_Management_SystemConnectionString {
             get {
                 return ((string)(this["Asset_Management_SystemConnectionString"]));
@@ -37,8 +37,8 @@ namespace Finals_AssetManagementSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CAHRLOS-ASUS1\\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=T" +
-            "rue;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout" +
+            "=30;Encrypt=True;TrustServerCertificate=True")]
         public string MASConnectionString {
             get {
                 return ((string)(this["MASConnectionString"]));
