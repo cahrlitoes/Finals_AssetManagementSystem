@@ -56,10 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AMS.designer.cs">
+    <Compile Include="AssetManagement.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AMS.dbml</DependentUpon>
+      <DependentUpon>AssetManagement.dbml</DependentUpon>
     </Compile>
     <Compile Include="StaticClass.cs" />
     <Compile Include="_AddAsset.xaml.cs">
@@ -166,17 +166,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="AMS.dbml.layout">
-      <DependentUpon>AMS.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="AMS.dbml">
+    <None Include="AssetManagement.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>AMS.designer.cs</LastGenOutput>
+      <LastGenOutput>AssetManagement.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="AssetManagement.dbml.layout">
+      <DependentUpon>AssetManagement.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

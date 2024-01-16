@@ -33,14 +33,14 @@
         </Button>
         <Label Content="ASSET INFORMATION" HorizontalAlignment="Left" Margin="45,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Label Content="Asset Name" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="71" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtAssetName" HorizontalAlignment="Left" Margin="121,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAssetName_TextChanged"/>
+        <TextBox x:Name="txtAssetName" HorizontalAlignment="Left" Margin="121,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Asset Code" HorizontalAlignment="Left" Margin="40,215,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="72" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtAssetCode" HorizontalAlignment="Left" Margin="121,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAssetCode_TextChanged"/>
+        <TextBox x:Name="txtAssetCode" HorizontalAlignment="Left" Margin="121,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Category" HorizontalAlignment="Left" Margin="40,303,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="62" FontWeight="Bold" Foreground="White" Height="26"/>
         <Rectangle HorizontalAlignment="Center" Height="120" Margin="0,350,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
         <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Height="26" Margin="121,303,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxCategory_SelectionChanged"/>
         <Label Content="Purchase Date" HorizontalAlignment="Left" Margin="406,217,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="85" FontWeight="Bold" Foreground="White" Height="24"/>
-        <TextBox x:Name="txtPurchaseDate" HorizontalAlignment="Left" Margin="496,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtPurchaseDate_TextChanged"/>
+        <TextBox x:Name="txtPurchaseDate" HorizontalAlignment="Left" Margin="496,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
         <Label Content="Status" HorizontalAlignment="Left" Margin="406,262,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="44" FontWeight="Bold" Foreground="White" Height="26"/>
         <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" Height="26" Margin="496,262,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxStatus_SelectionChanged"/>
         <Label Content="ASSET LOCATION" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
@@ -53,9 +53,9 @@
         <Label Content="SUPPLIER" HorizontalAlignment="Left" Margin="41,482,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="218"/>
         <Rectangle HorizontalAlignment="Center" Height="159" Margin="0,475,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>
         <Label Content="Supplier Name" HorizontalAlignment="Left" Margin="36,538,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="92" FontWeight="Bold" Foreground="White" Height="26"/>
-        <TextBox x:Name="txtContactNum" HorizontalAlignment="Left" Margin="520,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtContactNum_TextChanged"/>
-        <TextBox x:Name="txtSupplierName" HorizontalAlignment="Left" Margin="168,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtSupplierName_TextChanged"/>
-        <TextBox x:Name="txtContactPerson" HorizontalAlignment="Left" Margin="168,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtContactPerson_TextChanged"/>
+        <TextBox x:Name="txtContactNum" HorizontalAlignment="Left" Margin="520,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
+        <TextBox x:Name="txtSupplierName" HorizontalAlignment="Left" Margin="168,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
+        <TextBox x:Name="txtContactPerson" HorizontalAlignment="Left" Margin="168,589,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="26" Style="{StaticResource RoundedTB}" FontSize="10"/>
         <Label Content="Contact Person Name" HorizontalAlignment="Left" Margin="36,589,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="127" FontWeight="Bold" Foreground="White" Height="25"/>
         <Label Content="Contact Num." HorizontalAlignment="Left" Margin="423,541,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="92" FontWeight="Bold" Foreground="White" Height="25"/>
         <Rectangle HorizontalAlignment="Center" Height="168" Margin="0,639,0,0" Stroke="#FF650303" VerticalAlignment="Top" Width="870"/>

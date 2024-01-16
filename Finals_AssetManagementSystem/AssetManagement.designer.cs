@@ -30,9 +30,6 @@ namespace Finals_AssetManagementSystem
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InserttblSupplier(tblSupplier instance);
-    partial void UpdatetblSupplier(tblSupplier instance);
-    partial void DeletetblSupplier(tblSupplier instance);
     partial void InserttblAdmin(tblAdmin instance);
     partial void UpdatetblAdmin(tblAdmin instance);
     partial void DeletetblAdmin(tblAdmin instance);
@@ -54,6 +51,9 @@ namespace Finals_AssetManagementSystem
     partial void InserttblRequestStatus(tblRequestStatus instance);
     partial void UpdatetblRequestStatus(tblRequestStatus instance);
     partial void DeletetblRequestStatus(tblRequestStatus instance);
+    partial void InserttblSupplier(tblSupplier instance);
+    partial void UpdatetblSupplier(tblSupplier instance);
+    partial void DeletetblSupplier(tblSupplier instance);
     #endregion
 		
 		public AssetManagementDataContext() : 
@@ -84,14 +84,6 @@ namespace Finals_AssetManagementSystem
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<tblSupplier> tblSuppliers
-		{
-			get
-			{
-				return this.GetTable<tblSupplier>();
-			}
 		}
 		
 		public System.Data.Linq.Table<tblAdmin> tblAdmins
@@ -150,6 +142,28 @@ namespace Finals_AssetManagementSystem
 			}
 		}
 		
+		public System.Data.Linq.Table<tblSupplier> tblSuppliers
+		{
+			get
+			{
+				return this.GetTable<tblSupplier>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddBuildings")]
+		public ISingleResult<AddBuildingsResult> AddBuildings()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AddBuildingsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddDataByBuilding")]
+		public ISingleResult<AddDataByBuildingResult> AddDataByBuilding([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bldg)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bldg);
+			return ((ISingleResult<AddDataByBuildingResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AdminLogin")]
 		public ISingleResult<AdminLoginResult> AdminLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdminEmail", DbType="NVarChar(50)")] string adminEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APW", DbType="NVarChar(50)")] string aPW)
 		{
@@ -164,11 +178,25 @@ namespace Finals_AssetManagementSystem
 			return ((ISingleResult<BorrowerLoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrabLocationIDForUpdateViaLocField")]
+		public ISingleResult<GrabLocationIDForUpdateViaLocFieldResult> GrabLocationIDForUpdateViaLocField([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
+			return ((ISingleResult<GrabLocationIDForUpdateViaLocFieldResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAllAssets")]
 		public ISingleResult<ShowAllAssetsResult> ShowAllAssets()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<ShowAllAssetsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetInfoByAssetCode")]
+		public ISingleResult<ShowAssetInfoByAssetCodeResult> ShowAssetInfoByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AC", DbType="NVarChar(50)")] string aC)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aC);
+			return ((ISingleResult<ShowAssetInfoByAssetCodeResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetsByFilter")]
@@ -185,201 +213,11 @@ namespace Finals_AssetManagementSystem
 			return ((ISingleResult<ShowAssetsBySearchFilterResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowAssetInfoByAssetCode")]
-		public ISingleResult<ShowAssetInfoByAssetCodeResult> ShowAssetInfoByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AC", DbType="NVarChar(50)")] string aC)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aC);
-			return ((ISingleResult<ShowAssetInfoByAssetCodeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddDataByBuilding")]
-		public ISingleResult<AddDataByBuildingResult> AddDataByBuilding([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bldg)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bldg);
-			return ((ISingleResult<AddDataByBuildingResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddBuildings")]
-		public ISingleResult<AddBuildingsResult> AddBuildings()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<AddBuildingsResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrabLocationIDForUpdateViaLocField")]
-		public ISingleResult<GrabLocationIDForUpdateViaLocFieldResult> GrabLocationIDForUpdateViaLocField([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
-			return ((ISingleResult<GrabLocationIDForUpdateViaLocFieldResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAssetInformation")]
 		public int updateAssetInformation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AS", DbType="NVarChar(50)")] string aS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LID", DbType="Int")] System.Nullable<int> lID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AC", DbType="NVarChar(50)")] string aC)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aS, lID, aC);
 			return ((int)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSupplier")]
-	public partial class tblSupplier : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SupplierID;
-		
-		private string _SupplierName;
-		
-		private string _SupplierNum;
-		
-		private string _ContactPersonN;
-		
-		private EntitySet<tblAsset> _tblAssets;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSupplierIDChanging(int value);
-    partial void OnSupplierIDChanged();
-    partial void OnSupplierNameChanging(string value);
-    partial void OnSupplierNameChanged();
-    partial void OnSupplierNumChanging(string value);
-    partial void OnSupplierNumChanged();
-    partial void OnContactPersonNChanging(string value);
-    partial void OnContactPersonNChanged();
-    #endregion
-		
-		public tblSupplier()
-		{
-			this._tblAssets = new EntitySet<tblAsset>(new Action<tblAsset>(this.attach_tblAssets), new Action<tblAsset>(this.detach_tblAssets));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int SupplierID
-		{
-			get
-			{
-				return this._SupplierID;
-			}
-			set
-			{
-				if ((this._SupplierID != value))
-				{
-					this.OnSupplierIDChanging(value);
-					this.SendPropertyChanging();
-					this._SupplierID = value;
-					this.SendPropertyChanged("SupplierID");
-					this.OnSupplierIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SupplierName
-		{
-			get
-			{
-				return this._SupplierName;
-			}
-			set
-			{
-				if ((this._SupplierName != value))
-				{
-					this.OnSupplierNameChanging(value);
-					this.SendPropertyChanging();
-					this._SupplierName = value;
-					this.SendPropertyChanged("SupplierName");
-					this.OnSupplierNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierNum", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SupplierNum
-		{
-			get
-			{
-				return this._SupplierNum;
-			}
-			set
-			{
-				if ((this._SupplierNum != value))
-				{
-					this.OnSupplierNumChanging(value);
-					this.SendPropertyChanging();
-					this._SupplierNum = value;
-					this.SendPropertyChanged("SupplierNum");
-					this.OnSupplierNumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactPersonN", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string ContactPersonN
-		{
-			get
-			{
-				return this._ContactPersonN;
-			}
-			set
-			{
-				if ((this._ContactPersonN != value))
-				{
-					this.OnContactPersonNChanging(value);
-					this.SendPropertyChanging();
-					this._ContactPersonN = value;
-					this.SendPropertyChanged("ContactPersonN");
-					this.OnContactPersonNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSupplier_tblAsset", Storage="_tblAssets", ThisKey="SupplierID", OtherKey="SupplierID")]
-		public EntitySet<tblAsset> tblAssets
-		{
-			get
-			{
-				return this._tblAssets;
-			}
-			set
-			{
-				this._tblAssets.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblAssets(tblAsset entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSupplier = this;
-		}
-		
-		private void detach_tblAssets(tblAsset entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSupplier = null;
 		}
 	}
 	
@@ -643,9 +481,9 @@ namespace Finals_AssetManagementSystem
 		
 		private EntitySet<tblMaintenanceSchedule> _tblMaintenanceSchedules;
 		
-		private EntityRef<tblSupplier> _tblSupplier;
-		
 		private EntityRef<tblLocation> _tblLocation;
+		
+		private EntityRef<tblSupplier> _tblSupplier;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -673,8 +511,8 @@ namespace Finals_AssetManagementSystem
 		{
 			this._tblBorrowDetails = new EntitySet<tblBorrowDetail>(new Action<tblBorrowDetail>(this.attach_tblBorrowDetails), new Action<tblBorrowDetail>(this.detach_tblBorrowDetails));
 			this._tblMaintenanceSchedules = new EntitySet<tblMaintenanceSchedule>(new Action<tblMaintenanceSchedule>(this.attach_tblMaintenanceSchedules), new Action<tblMaintenanceSchedule>(this.detach_tblMaintenanceSchedules));
-			this._tblSupplier = default(EntityRef<tblSupplier>);
 			this._tblLocation = default(EntityRef<tblLocation>);
+			this._tblSupplier = default(EntityRef<tblSupplier>);
 			OnCreated();
 		}
 		
@@ -872,40 +710,6 @@ namespace Finals_AssetManagementSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSupplier_tblAsset", Storage="_tblSupplier", ThisKey="SupplierID", OtherKey="SupplierID", IsForeignKey=true)]
-		public tblSupplier tblSupplier
-		{
-			get
-			{
-				return this._tblSupplier.Entity;
-			}
-			set
-			{
-				tblSupplier previousValue = this._tblSupplier.Entity;
-				if (((previousValue != value) 
-							|| (this._tblSupplier.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblSupplier.Entity = null;
-						previousValue.tblAssets.Remove(this);
-					}
-					this._tblSupplier.Entity = value;
-					if ((value != null))
-					{
-						value.tblAssets.Add(this);
-						this._SupplierID = value.SupplierID;
-					}
-					else
-					{
-						this._SupplierID = default(int);
-					}
-					this.SendPropertyChanged("tblSupplier");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLocation_tblAsset", Storage="_tblLocation", ThisKey="LocationID", OtherKey="LocationID", IsForeignKey=true)]
 		public tblLocation tblLocation
 		{
@@ -936,6 +740,40 @@ namespace Finals_AssetManagementSystem
 						this._LocationID = default(int);
 					}
 					this.SendPropertyChanged("tblLocation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSupplier_tblAsset", Storage="_tblSupplier", ThisKey="SupplierID", OtherKey="SupplierID", IsForeignKey=true)]
+		public tblSupplier tblSupplier
+		{
+			get
+			{
+				return this._tblSupplier.Entity;
+			}
+			set
+			{
+				tblSupplier previousValue = this._tblSupplier.Entity;
+				if (((previousValue != value) 
+							|| (this._tblSupplier.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblSupplier.Entity = null;
+						previousValue.tblAssets.Remove(this);
+					}
+					this._tblSupplier.Entity = value;
+					if ((value != null))
+					{
+						value.tblAssets.Add(this);
+						this._SupplierID = value.SupplierID;
+					}
+					else
+					{
+						this._SupplierID = default(int);
+					}
+					this.SendPropertyChanged("tblSupplier");
 				}
 			}
 		}
@@ -2160,6 +1998,256 @@ namespace Finals_AssetManagementSystem
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSupplier")]
+	public partial class tblSupplier : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SupplierID;
+		
+		private string _SupplierName;
+		
+		private string _SupplierNum;
+		
+		private string _ContactPersonN;
+		
+		private EntitySet<tblAsset> _tblAssets;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSupplierIDChanging(int value);
+    partial void OnSupplierIDChanged();
+    partial void OnSupplierNameChanging(string value);
+    partial void OnSupplierNameChanged();
+    partial void OnSupplierNumChanging(string value);
+    partial void OnSupplierNumChanged();
+    partial void OnContactPersonNChanging(string value);
+    partial void OnContactPersonNChanged();
+    #endregion
+		
+		public tblSupplier()
+		{
+			this._tblAssets = new EntitySet<tblAsset>(new Action<tblAsset>(this.attach_tblAssets), new Action<tblAsset>(this.detach_tblAssets));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SupplierID
+		{
+			get
+			{
+				return this._SupplierID;
+			}
+			set
+			{
+				if ((this._SupplierID != value))
+				{
+					this.OnSupplierIDChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierID = value;
+					this.SendPropertyChanged("SupplierID");
+					this.OnSupplierIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SupplierName
+		{
+			get
+			{
+				return this._SupplierName;
+			}
+			set
+			{
+				if ((this._SupplierName != value))
+				{
+					this.OnSupplierNameChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierName = value;
+					this.SendPropertyChanged("SupplierName");
+					this.OnSupplierNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierNum", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SupplierNum
+		{
+			get
+			{
+				return this._SupplierNum;
+			}
+			set
+			{
+				if ((this._SupplierNum != value))
+				{
+					this.OnSupplierNumChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierNum = value;
+					this.SendPropertyChanged("SupplierNum");
+					this.OnSupplierNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactPersonN", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ContactPersonN
+		{
+			get
+			{
+				return this._ContactPersonN;
+			}
+			set
+			{
+				if ((this._ContactPersonN != value))
+				{
+					this.OnContactPersonNChanging(value);
+					this.SendPropertyChanging();
+					this._ContactPersonN = value;
+					this.SendPropertyChanged("ContactPersonN");
+					this.OnContactPersonNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSupplier_tblAsset", Storage="_tblAssets", ThisKey="SupplierID", OtherKey="SupplierID")]
+		public EntitySet<tblAsset> tblAssets
+		{
+			get
+			{
+				return this._tblAssets;
+			}
+			set
+			{
+				this._tblAssets.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblAssets(tblAsset entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSupplier = this;
+		}
+		
+		private void detach_tblAssets(tblAsset entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSupplier = null;
+		}
+	}
+	
+	public partial class AddBuildingsResult
+	{
+		
+		private string _BldgName;
+		
+		public AddBuildingsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddDataByBuildingResult
+	{
+		
+		private int _RoomNo;
+		
+		private int _FloorNo;
+		
+		private string _BldgName;
+		
+		public AddDataByBuildingResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
+		public int RoomNo
+		{
+			get
+			{
+				return this._RoomNo;
+			}
+			set
+			{
+				if ((this._RoomNo != value))
+				{
+					this._RoomNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
+		public int FloorNo
+		{
+			get
+			{
+				return this._FloorNo;
+			}
+			set
+			{
+				if ((this._FloorNo != value))
+				{
+					this._FloorNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BldgName
+		{
+			get
+			{
+				return this._BldgName;
+			}
+			set
+			{
+				if ((this._BldgName != value))
+				{
+					this._BldgName = value;
+				}
+			}
+		}
+	}
+	
 	public partial class AdminLoginResult
 	{
 		
@@ -2212,6 +2300,32 @@ namespace Finals_AssetManagementSystem
 		}
 	}
 	
+	public partial class GrabLocationIDForUpdateViaLocFieldResult
+	{
+		
+		private int _LocationID;
+		
+		public GrabLocationIDForUpdateViaLocFieldResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+	}
+	
 	public partial class ShowAllAssetsResult
 	{
 		
@@ -2224,166 +2338,6 @@ namespace Finals_AssetManagementSystem
 		private string _AssetStatus;
 		
 		public ShowAllAssetsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetName
-		{
-			get
-			{
-				return this._AssetName;
-			}
-			set
-			{
-				if ((this._AssetName != value))
-				{
-					this._AssetName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetCode
-		{
-			get
-			{
-				return this._AssetCode;
-			}
-			set
-			{
-				if ((this._AssetCode != value))
-				{
-					this._AssetCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetType
-		{
-			get
-			{
-				return this._AssetType;
-			}
-			set
-			{
-				if ((this._AssetType != value))
-				{
-					this._AssetType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetStatus
-		{
-			get
-			{
-				return this._AssetStatus;
-			}
-			set
-			{
-				if ((this._AssetStatus != value))
-				{
-					this._AssetStatus = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ShowAssetsByFilterResult
-	{
-		
-		private string _AssetName;
-		
-		private string _AssetCode;
-		
-		private string _AssetType;
-		
-		private string _AssetStatus;
-		
-		public ShowAssetsByFilterResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetName
-		{
-			get
-			{
-				return this._AssetName;
-			}
-			set
-			{
-				if ((this._AssetName != value))
-				{
-					this._AssetName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetCode
-		{
-			get
-			{
-				return this._AssetCode;
-			}
-			set
-			{
-				if ((this._AssetCode != value))
-				{
-					this._AssetCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetType
-		{
-			get
-			{
-				return this._AssetType;
-			}
-			set
-			{
-				if ((this._AssetType != value))
-				{
-					this._AssetType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string AssetStatus
-		{
-			get
-			{
-				return this._AssetStatus;
-			}
-			set
-			{
-				if ((this._AssetStatus != value))
-				{
-					this._AssetStatus = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ShowAssetsBySearchFilterResult
-	{
-		
-		private string _AssetName;
-		
-		private string _AssetCode;
-		
-		private string _AssetType;
-		
-		private string _AssetStatus;
-		
-		public ShowAssetsBySearchFilterResult()
 		{
 		}
 		
@@ -2550,115 +2504,161 @@ namespace Finals_AssetManagementSystem
 		}
 	}
 	
-	public partial class AddDataByBuildingResult
+	public partial class ShowAssetsByFilterResult
 	{
 		
-		private int _RoomNo;
+		private string _AssetName;
 		
-		private int _FloorNo;
+		private string _AssetCode;
 		
-		private string _BldgName;
+		private string _AssetType;
 		
-		public AddDataByBuildingResult()
+		private string _AssetStatus;
+		
+		public ShowAssetsByFilterResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
-		public int RoomNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetName
 		{
 			get
 			{
-				return this._RoomNo;
+				return this._AssetName;
 			}
 			set
 			{
-				if ((this._RoomNo != value))
+				if ((this._AssetName != value))
 				{
-					this._RoomNo = value;
+					this._AssetName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
-		public int FloorNo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
 		{
 			get
 			{
-				return this._FloorNo;
+				return this._AssetCode;
 			}
 			set
 			{
-				if ((this._FloorNo != value))
+				if ((this._AssetCode != value))
 				{
-					this._FloorNo = value;
+					this._AssetCode = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BldgName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetType
 		{
 			get
 			{
-				return this._BldgName;
+				return this._AssetType;
 			}
 			set
 			{
-				if ((this._BldgName != value))
+				if ((this._AssetType != value))
 				{
-					this._BldgName = value;
+					this._AssetType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
 				}
 			}
 		}
 	}
 	
-	public partial class AddBuildingsResult
+	public partial class ShowAssetsBySearchFilterResult
 	{
 		
-		private string _BldgName;
+		private string _AssetName;
 		
-		public AddBuildingsResult()
+		private string _AssetCode;
+		
+		private string _AssetType;
+		
+		private string _AssetStatus;
+		
+		public ShowAssetsBySearchFilterResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BldgName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetName
 		{
 			get
 			{
-				return this._BldgName;
+				return this._AssetName;
 			}
 			set
 			{
-				if ((this._BldgName != value))
+				if ((this._AssetName != value))
 				{
-					this._BldgName = value;
+					this._AssetName = value;
 				}
 			}
 		}
-	}
-	
-	public partial class GrabLocationIDForUpdateViaLocFieldResult
-	{
 		
-		private int _LocationID;
-		
-		public GrabLocationIDForUpdateViaLocFieldResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
-		public int LocationID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
 		{
 			get
 			{
-				return this._LocationID;
+				return this._AssetCode;
 			}
 			set
 			{
-				if ((this._LocationID != value))
+				if ((this._AssetCode != value))
 				{
-					this._LocationID = value;
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetType
+		{
+			get
+			{
+				return this._AssetType;
+			}
+			set
+			{
+				if ((this._AssetType != value))
+				{
+					this._AssetType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetStatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetStatus
+		{
+			get
+			{
+				return this._AssetStatus;
+			}
+			set
+			{
+				if ((this._AssetStatus != value))
+				{
+					this._AssetStatus = value;
 				}
 			}
 		}

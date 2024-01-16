@@ -36,55 +36,6 @@ namespace Finals_AssetManagementSystem
 
         }
 
-        private void txtAssetName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtAssetCode_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBoxCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPurchaseDate_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBoxRoomNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBoxFloorNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBoxBuildingName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void txtSupplierName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtContactPerson_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtContactNum_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {

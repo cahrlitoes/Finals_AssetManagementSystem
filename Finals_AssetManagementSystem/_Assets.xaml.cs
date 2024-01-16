@@ -26,13 +26,26 @@ namespace Finals_AssetManagementSystem
         public _Assets()
         {
             InitializeComponent();
-            AdminName.Content = StaticClass.storestring;
-            int x = 0;
-            List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
-            foreach (var item in showAllAssetsResults)
+            if (txtSearch.Text.Length > 0)
             {
-                lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
-                x++;
+                AdminName.Content = StaticClass.storestring;
+                int x = 0;
+                List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
+                foreach (var item in showAllAssetsResults)
+                {
+                    lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
+                    x++;
+                }
+            }
+            else if (txtSearch.Text.Length == 0)
+            {
+                List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
+                int y = 0;
+                foreach (var item in showAllAssetsResults)
+                {
+                    lbxAllItems.Items.Add(lbxAllItems.Items.Add(showAllAssetsResults[y].AssetName + "\t\t" + showAllAssetsResults[y].AssetCode + "\t\t" + showAllAssetsResults[y].AssetType + "\t\t" + showAllAssetsResults[y].AssetStatus));
+                    y++;
+                }
             }
 
         }
@@ -65,10 +78,10 @@ namespace Finals_AssetManagementSystem
            updateListbox();
         }
 
-        private void lbxAllItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        //private void lbxAllItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    db.ShowAllAssets();
+        //}
 
         private void btnAddItems_Click(object sender, RoutedEventArgs e)
         {
