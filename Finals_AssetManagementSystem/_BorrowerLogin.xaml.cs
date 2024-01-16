@@ -33,8 +33,8 @@ namespace Finals_AssetManagementSystem
             if (result.Count > 0 && result[0] != null)
             {
                 StaticClass.storestring = result[0].BorrowerFullName;
-                _Home dashboard = new _Home();
-                dashboard.Show();
+                _BorrowAsset _BorrowAsset = new _BorrowAsset();
+                _BorrowAsset.Show();
                 this.Close();
             }
             if (result.Count <= 0)
