@@ -29,18 +29,33 @@ namespace Finals_AssetManagementSystem
         {
             InitializeComponent();
             fill();
-        
+
         }
 
         private void fill()
         {
             AdminName.Content = StaticClass.storestring;
-            int x = 0;
             List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
+            List<string> a = new List<string>();
+            List<string> b = new List<string>();
+            int z = 0;
+            int q = 0;
             foreach (var item in showAllAssetsResults)
             {
-                lbxAvailableItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
-                x++;
+                if (!cbCategory.Items.Contains(item.AssetType))
+                {
+                    cbCategory.Items.Add(item.AssetType);
+                }
+            }
+
+            for (int x = 0; x < showAllAssetsResults.Count; x++)
+            {
+                if (!a.Contains(showAllAssetsResults[x].AssetName.ToString()) && showAllAssetsResults[x].AssetStatus.ToString() == "Available")
+                {
+                    a.Add(showAllAssetsResults[x].AssetName.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAllAssetsResults[x].AssetType.ToString() + "\t\t" + showAllAssetsResults[x].AssetStatus.ToString());
+                    z++;
+                }
             }
         }
 
@@ -58,20 +73,25 @@ namespace Finals_AssetManagementSystem
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbxAvailableItems.SelectedItem = -1;
-            cat = (string)cbCategory.SelectedItem;
-            updateListbox();
-        }
+           
+        } 
 
         private void updateListbox()
         {
             lbxAvailableItems.Items.Clear();
-            int x = 0;
             List<ShowAssetsByFilterResult> showAssetsByFilterResults = db.ShowAssetsByFilter(cat, stat).ToList();
-            foreach (var item in showAssetsByFilterResults)
+            List<string> a = new List<string>();
+            int z = 0;
+
+
+            for (int x = 0; x < showAssetsByFilterResults.Count; x++)
             {
-                lbxAvailableItems.Items.Add(showAssetsByFilterResults[x].AssetName + "\t\t" + showAssetsByFilterResults[x].AssetCode + "\t\t" + showAssetsByFilterResults[x].AssetType + "\t\t" + showAssetsByFilterResults[x].AssetStatus);
-                x++;
+                if (!a.Contains(showAssetsByFilterResults[x].AssetName.ToString()) && showAssetsByFilterResults[x].AssetStatus.ToString() == "Available")
+                {
+                    a.Add(showAssetsByFilterResults[x].AssetName.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAssetsByFilterResults[x].AssetType.ToString() + "\t\t" + showAssetsByFilterResults[x].AssetStatus.ToString());
+                    z++;
+                }
             }
         }
 
@@ -84,18 +104,31 @@ namespace Finals_AssetManagementSystem
                 if (txtUserSearch.Text.Length > 0)
                 {
                     string filter = txtUserSearch.Text;
+                    List<string> a = new List<string>();
+                    int z = 0;
                     List<ShowAssetsBySearchFilterResult> showAssetsBySearchFiltersResults = db.ShowAssetsBySearchFilter(filter).ToList();
                     for (int x = 0; x < showAssetsBySearchFiltersResults.Count; x++)
                     {
-                        lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                        if (!a.Contains(showAssetsBySearchFiltersResults[x].AssetName.ToString()) && showAssetsBySearchFiltersResults[x].AssetStatus.ToString() == "Available")
+                        {
+                            a.Add(showAssetsBySearchFiltersResults[z].AssetName.ToString());
+                            lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                            z++;
+                        }
                     }
                 }
                 else
                 {
                     fill();
                 }
-
             }
+        }
+
+        private void lbxAvailableItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string[] b = lbxAvailableItems.SelectedItem.ToString().Split('\t');
+            int qty = (int)db.GetTotalCountByAssetName(b[0]);
+            txtAvailableQty.Text = qty.ToString();
         }
     }
 }

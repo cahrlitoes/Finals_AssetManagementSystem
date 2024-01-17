@@ -57,6 +57,7 @@ namespace Finals_AssetManagementSystem
     #endregion
 		
 		public AssetManagementDataContext() : 
+				base(global::Finals_AssetManagementSystem.Properties.Settings.Default.MASConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -184,6 +185,20 @@ namespace Finals_AssetManagementSystem
 			return ((ISingleResult<BorrowerLoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FindLocID")]
+		public ISingleResult<FindLocIDResult> FindLocID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
+			return ((ISingleResult<FindLocIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSuppId")]
+		public ISingleResult<GetSuppIdResult> GetSuppId()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetSuppIdResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrabLocationIDForUpdateViaLocField")]
 		public ISingleResult<GrabLocationIDForUpdateViaLocFieldResult> GrabLocationIDForUpdateViaLocField([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
 		{
@@ -195,6 +210,20 @@ namespace Finals_AssetManagementSystem
 		public int InsertAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="VarChar(255)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="VarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(255)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="NVarChar(50)")] string type)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, date, status, type);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertNewAsset")]
+		public int InsertNewAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="NVarChar(50)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="NVarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetType", DbType="NVarChar(50)")] string assetType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetPurchaseDate", DbType="NVarChar(50)")] string assetPurchaseDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetStatus", DbType="NVarChar(50)")] string assetStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierID", DbType="Int")] System.Nullable<int> supplierID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, assetType, assetPurchaseDate, assetStatus, locationID, supplierID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertNewSupplier")]
+		public int InsertNewSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SN", DbType="NVarChar(50)")] string sN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SNum", DbType="NVarChar(50)")] string sNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string cn)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sN, sNum, cn);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -240,53 +269,10 @@ namespace Finals_AssetManagementSystem
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllLocations")]
-		public ISingleResult<AllLocationsResult> AllLocations()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTotalCountByAssetName", IsComposable=true)]
+		public System.Nullable<int> GetTotalCountByAssetName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AN", DbType="NVarChar(50)")] string aN)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<AllLocationsResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSupplier")]
-		public int InsertSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Number", DbType="NVarChar(50)")] string number, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactPersoN", DbType="NVarChar(50)")] string contactPersoN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, number, contactPersoN);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertAsset")]
-		public int InsertAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="VarChar(255)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="VarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(255)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="NVarChar(50)")] string type)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, date, status, type);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSuppId")]
-		public ISingleResult<GetSuppIdResult> GetSuppId()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<GetSuppIdResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FindLocID")]
-		public ISingleResult<FindLocIDResult> FindLocID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RN", DbType="Int")] System.Nullable<int> rN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FN", DbType="Int")] System.Nullable<int> fN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BN", DbType="NVarChar(50)")] string bN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rN, fN, bN);
-			return ((ISingleResult<FindLocIDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertNewAsset")]
-		public int InsertNewAsset([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetName", DbType="NVarChar(50)")] string assetName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="NVarChar(50)")] string assetCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetType", DbType="NVarChar(50)")] string assetType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetPurchaseDate", DbType="NVarChar(50)")] string assetPurchaseDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetStatus", DbType="NVarChar(50)")] string assetStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LocationID", DbType="Int")] System.Nullable<int> locationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierID", DbType="Int")] System.Nullable<int> supplierID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetName, assetCode, assetType, assetPurchaseDate, assetStatus, locationID, supplierID);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertNewSupplier")]
-		public int InsertNewSupplier([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SN", DbType="NVarChar(50)")] string sN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SNum", DbType="NVarChar(50)")] string sNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(100)")] string cn)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sN, sNum, cn);
-			return ((int)(result.ReturnValue));
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aN).ReturnValue));
 		}
 	}
 	
@@ -2418,9 +2404,9 @@ namespace Finals_AssetManagementSystem
 				if ((this._BldgName != value))
 				{
 					this._BldgName = value;
+				}
 			}
 		}
-	}
 	}
 	
 	public partial class BorrowerLoginResult
@@ -2444,6 +2430,58 @@ namespace Finals_AssetManagementSystem
 				if ((this._BorrowerFullName != value))
 				{
 					this._BorrowerFullName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class FindLocIDResult
+	{
+		
+		private int _LocationID;
+		
+		public FindLocIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
+		public int LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this._LocationID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetSuppIdResult
+	{
+		
+		private int _SupplierID;
+		
+		public GetSuppIdResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", DbType="Int NOT NULL")]
+		public int SupplierID
+		{
+			get
+			{
+				return this._SupplierID;
+			}
+			set
+			{
+				if ((this._SupplierID != value))
+				{
+					this._SupplierID = value;
 				}
 			}
 		}
@@ -2808,138 +2846,6 @@ namespace Finals_AssetManagementSystem
 				if ((this._AssetStatus != value))
 				{
 					this._AssetStatus = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AllLocationsResult
-	{
-		
-		private int _LocationID;
-		
-		private int _RoomNo;
-		
-		private int _FloorNo;
-		
-		private string _BldgName;
-		
-		public AllLocationsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
-		public int LocationID
-		{
-			get
-			{
-				return this._LocationID;
-			}
-			set
-			{
-				if ((this._LocationID != value))
-				{
-					this._LocationID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomNo", DbType="Int NOT NULL")]
-		public int RoomNo
-		{
-			get
-			{
-				return this._RoomNo;
-			}
-			set
-			{
-				if ((this._RoomNo != value))
-				{
-					this._RoomNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FloorNo", DbType="Int NOT NULL")]
-		public int FloorNo
-		{
-			get
-			{
-				return this._FloorNo;
-			}
-			set
-			{
-				if ((this._FloorNo != value))
-				{
-					this._FloorNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BldgName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BldgName
-		{
-			get
-			{
-				return this._BldgName;
-			}
-			set
-			{
-				if ((this._BldgName != value))
-				{
-					this._BldgName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GetSuppIdResult
-	{
-		
-		private int _SupplierID;
-		
-		public GetSuppIdResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", DbType="Int NOT NULL")]
-		public int SupplierID
-		{
-			get
-			{
-				return this._SupplierID;
-			}
-			set
-			{
-				if ((this._SupplierID != value))
-				{
-					this._SupplierID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class FindLocIDResult
-	{
-		
-		private int _LocationID;
-		
-		public FindLocIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="Int NOT NULL")]
-		public int LocationID
-		{
-			get
-			{
-				return this._LocationID;
-			}
-			set
-			{
-				if ((this._LocationID != value))
-				{
-					this._LocationID = value;
 				}
 			}
 		}

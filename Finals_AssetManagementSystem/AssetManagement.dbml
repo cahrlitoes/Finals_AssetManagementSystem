@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAS" Class="AssetManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CAHRLOS-ASUS1\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString3" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAdmin" Member="tblAdmins">
     <Type Name="tblAdmin">
       <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -129,6 +129,19 @@
       <Column Name="BorrowerFullName" Type="System.String" DbType="NVarChar(102) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.FindLocID" Method="FindLocID">
+    <Parameter Name="RN" Parameter="rN" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FN" Parameter="fN" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BN" Parameter="bN" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="FindLocIDResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSuppId" Method="GetSuppId">
+    <ElementType Name="GetSuppIdResult">
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GrabLocationIDForUpdateViaLocField" Method="GrabLocationIDForUpdateViaLocField">
     <Parameter Name="RN" Parameter="rN" Type="System.Int32" DbType="Int" />
     <Parameter Name="FN" Parameter="fN" Type="System.Int32" DbType="Int" />
@@ -143,6 +156,22 @@
     <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertNewAsset" Method="InsertNewAsset">
+    <Parameter Name="AssetName" Parameter="assetName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AssetCode" Parameter="assetCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AssetType" Parameter="assetType" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AssetPurchaseDate" Parameter="assetPurchaseDate" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AssetStatus" Parameter="assetStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertNewSupplier" Method="InsertNewSupplier">
+    <Parameter Name="SN" Parameter="sN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SNum" Parameter="sNum" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="cn" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.InsertSupplier" Method="InsertSupplier">
@@ -192,6 +221,10 @@
     <Parameter Name="AS" Parameter="aS" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="LID" Parameter="lID" Type="System.Int32" DbType="Int" />
     <Parameter Name="AC" Parameter="aC" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTotalCountByAssetName" Method="GetTotalCountByAssetName" IsComposable="true">
+    <Parameter Name="AN" Parameter="aN" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
