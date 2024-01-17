@@ -45,7 +45,7 @@
         <Image Margin="669,-50,-147,678" Source="/UserIcon.png"/>
         <ListBox x:Name="lbxAvailableItems" Width="400" Height="472" Margin="31,267,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" BorderBrush="White" SelectionChanged="lbxAvailableItems_SelectionChanged"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtUserSearch" HorizontalAlignment="Left" Margin="92,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" KeyUp="txtUserSearch_KeyUp"/>
+        <TextBox x:Name="txtUserSearch" HorizontalAlignment="Left" Margin="92,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" KeyDown="txtUserSearch_KeyUp"/>
         <Label Content="AVAILABLE ASSETS" HorizontalAlignment="Left" Margin="26,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="190"/>
         <Label Content="REQUEST BORROW ASSETS" HorizontalAlignment="Left" Margin="490,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="256"/>
         <ListBox x:Name="lbxBorrowItems" Width="410" Height="410" Margin="498,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" BorderBrush="White"/>
@@ -59,7 +59,7 @@
         <Label Content="Date of Return" HorizontalAlignment="Left" Margin="494,215,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="88" FontWeight="Bold" Foreground="White" Height="26"/>
         <Label Content="Enter Quantity" HorizontalAlignment="Left" Margin="490,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="90" Foreground="White" Height="24" FontWeight="Bold"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="50" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtEnterQty" HorizontalAlignment="Left" Margin="584,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" />
+        <TextBox x:Name="txtEnterQty" HorizontalAlignment="Left" Margin="584,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" IsEnabled="False" KeyUp="txtEnterQty_KeyUp" />
         <Label Content="Available Quantity" HorizontalAlignment="Left" Margin="678,177,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="108" Foreground="White" Height="24" FontWeight="Bold"/>
         <TextBox x:Name="txtAvailableQty" HorizontalAlignment="Left" Margin="789,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Height="26" Style="{StaticResource RoundedTB}" FontSize="10"  IsEnabled="False"/>
         <Button x:Name="ViewBtn" Content="VIEW REQUEST" HorizontalAlignment="Left" Margin="593,761,0,0" VerticalAlignment="Top" Height="43" Width="150" Background="#FF720000" Foreground="#FFFAFAFA"  Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14" RenderTransformOrigin="0.497,0.838"/>

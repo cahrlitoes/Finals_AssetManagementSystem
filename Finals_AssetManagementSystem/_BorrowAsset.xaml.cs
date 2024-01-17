@@ -97,6 +97,8 @@ namespace Finals_AssetManagementSystem
 
         private void txtUserSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            txtAvailableQty.Text = string.Empty;
+            lbxAvailableItems.SelectedIndex = -1;
             cbCategory.SelectedIndex = -1;
             if (e.Key == Key.Enter)
             {
@@ -126,9 +128,41 @@ namespace Finals_AssetManagementSystem
 
         private void lbxAvailableItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string[] b = lbxAvailableItems.SelectedItem.ToString().Split('\t');
-            int qty = (int)db.GetTotalCountByAssetName(b[0]);
-            txtAvailableQty.Text = qty.ToString();
+            string[] b = new string[] { };
+            if (lbxAvailableItems.SelectedIndex != -1)
+            {
+                b = lbxAvailableItems.SelectedItem.ToString().Split('\t');
+                int qty = (int)db.GetTotalCountByAssetName(b[0]);
+                txtAvailableQty.Text = qty.ToString();
+                txtEnterQty.IsEnabled = true;
+            }
+            if (lbxAvailableItems.SelectedIndex == -1)
+                txtEnterQty.IsEnabled = false;
+   
+
+        }
+
+
+        private void txtEnterQty_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool a = false;
+            int c = 0;
+            a = int.TryParse(txtEnterQty.Text, out c);
+            if (a)
+            {
+                
+            }
+            else if (a == false && txtEnterQty.Text.Length != 0)
+            {
+                MessageBox.Show("Please input a number less than or equal to the available amount");
+                txtEnterQty.Text = string.Empty;
+            }
+            if (c > int.Parse(txtAvailableQty.Text)) 
+            {
+                MessageBox.Show("Please input a number less than or equal to the available amount");
+                txtEnterQty.Text = string.Empty;
+            }
+
         }
     }
 }
