@@ -86,7 +86,12 @@ namespace Finals_AssetManagementSystem
             List<ShowAllAssetsResult> showAllAssetsResults = db.ShowAllAssets().ToList();
             foreach (var item in showAllAssetsResults)
             {
-                lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
+                if (showAllAssetsResults[x].AssetName.Length < 10)
+                {
+                    lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t\t" + showAllAssetsResults[x].AssetStatus);
+                }
+                else
+                    lbxAllItems.Items.Add(showAllAssetsResults[x].AssetName + "\t\t" + showAllAssetsResults[x].AssetCode + "\t\t" + showAllAssetsResults[x].AssetType + "\t\t" + showAllAssetsResults[x].AssetStatus);
                 x++;
             }
         }
@@ -103,7 +108,14 @@ namespace Finals_AssetManagementSystem
                     List<ShowAssetsBySearchFilterResult> showAssetsBySearchFiltersResults = db.ShowAssetsBySearchFilter(filter).ToList();
                     for (int x = 0; x < showAssetsBySearchFiltersResults.Count; x++)
                     {
-                        lbxAllItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                        if (showAssetsBySearchFiltersResults[x].AssetName.Length < 10)
+                        {
+                            lbxAllItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                        }
+                        else
+                        {
+                            lbxAllItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                        }
                     }
                 }
                 else
