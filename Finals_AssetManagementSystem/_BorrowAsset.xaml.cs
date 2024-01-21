@@ -53,16 +53,12 @@ namespace Finals_AssetManagementSystem
                 if (!a.Contains(showAllAssetsResults[x].AssetName.ToString()) && showAllAssetsResults[x].AssetStatus.ToString() == "Available")
                 {
                     a.Add(showAllAssetsResults[x].AssetName.ToString());
-                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAllAssetsResults[x].AssetType.ToString() + "\t\t" + showAllAssetsResults[x].AssetStatus.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAllAssetsResults[x].AssetType.ToString());
                     z++;
                 }
             }
         }
 
-        private void fillborrow() //Missing USP for selecting all of the borrowers as well as inserting!!! 
-        {
-
-        }
 
         private void btnReturnItems_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +69,9 @@ namespace Finals_AssetManagementSystem
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            lbxAvailableItems.SelectedItem = -1;
+            cat = (string)cbCategory.SelectedItem;
+            updateListbox();
         } 
 
         private void updateListbox()
@@ -89,7 +87,7 @@ namespace Finals_AssetManagementSystem
                 if (!a.Contains(showAssetsByFilterResults[x].AssetName.ToString()) && showAssetsByFilterResults[x].AssetStatus.ToString() == "Available")
                 {
                     a.Add(showAssetsByFilterResults[x].AssetName.ToString());
-                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAssetsByFilterResults[x].AssetType.ToString() + "\t\t" + showAssetsByFilterResults[x].AssetStatus.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAssetsByFilterResults[x].AssetType.ToString());
                     z++;
                 }
             }
@@ -116,8 +114,7 @@ namespace Finals_AssetManagementSystem
                         if (!a.Contains(showAssetsBySearchFiltersResults[x].AssetName.ToString()) && showAssetsBySearchFiltersResults[x].AssetStatus.ToString() == "Available")
                         {
                             a.Add(showAssetsBySearchFiltersResults[z].AssetName.ToString());
-                            lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
-                            z++;
+                            lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType);
                         }
                     }
                 }
@@ -165,6 +162,11 @@ namespace Finals_AssetManagementSystem
                 txtEnterQty.Text = string.Empty;
             }
 
+        }
+
+        private void btnRequestBorrow_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Is this all you want to request?", "Requesting. . .", MessageBoxButton.YesNoCancel);
         }
     }
 }
