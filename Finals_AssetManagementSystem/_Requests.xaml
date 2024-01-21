@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Pending Requests" Height="750" Width="810" ResizeMode="NoResize">
+        Title="Pending Requests" Height="600" Width="810" ResizeMode="NoResize">
     <Grid>
         <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="742" Width="827" VerticalAlignment="Center" Fill="#FFE6AA04" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
@@ -28,14 +28,7 @@
         <Label x:Name="AdminName" Content="Lastname, Firstname" HorizontalAlignment="Left" Margin="535,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
         <ListBox x:Name="lbxPendingRequest" Width="376" Height="306" Margin="388,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxPendingRequests_SelectionChanged" BorderBrush="White"/>
         <Label Content="BORROWER'S NAME" HorizontalAlignment="Left" Height="28" Margin="33,130,0,0" VerticalAlignment="Top" Width="232" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
-        <Label Content="UPDATE REQUEST" HorizontalAlignment="Left" Height="28" Margin="66,495,0,0" VerticalAlignment="Top" Width="168" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.45,2.623"/>
-        <Label Content="Request Status ID" HorizontalAlignment="Left" Margin="55,536,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="111" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtRequestStatusID" HorizontalAlignment="Left" Margin="171,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtRequestStatusID_TextChanged" IsEnabled="False"/>
-        <Label Content="Request Status" HorizontalAlignment="Left" Margin="66,570,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="86" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbRequestStatus" HorizontalAlignment="Left" Height="26" Margin="171,570,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxRequestStatus_SelectionChanged"/>
-        <Label Content="Admin Comments" HorizontalAlignment="Left" Margin="372,536,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="105" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtAdminComments" HorizontalAlignment="Left" Margin="477,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Height="73" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAdminComments_TextChanged"/>
-        <Button x:Name="btnUpdateRequests" Content="UPDATE REQUEST" HorizontalAlignment="Left" Margin="586,638,0,0" VerticalAlignment="Top" Height="42" Width="142" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnUpdateRequests_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
+        <Button x:Name="btnUpdateRequests" Content="UPDATE REQUEST" HorizontalAlignment="Left" Margin="586,504,0,0" VerticalAlignment="Top" Height="42" Width="142" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnUpdateRequests_Click" Style="{StaticResource RoundedBTNRed}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
         <Rectangle HorizontalAlignment="Left" Height="11" Margin="788,674,0,0" VerticalAlignment="Top" Width="12">
             <Rectangle.Stroke>
                 <SolidColorBrush Color="Black" Opacity="0"/>

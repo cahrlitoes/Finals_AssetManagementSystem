@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finals_AssetManagementSystem"
         mc:Ignorable="d"
-        Title="Maintenance Schedule" Height="860" Width="790" ResizeMode="NoResize">
+        Title="Maintenance Schedule" Height="950" Width="790" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="850" Width="836" VerticalAlignment="Top" Fill="#FF782929" RenderTransformOrigin="0.5,0.5" Margin="0,10,0,0">
+        <Rectangle RadiusX="5" RadiusY="5" HorizontalAlignment="Center" Height="935" Width="836" VerticalAlignment="Top" Fill="#FF782929" RenderTransformOrigin="0.5,0.5" Margin="0,10,0,0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -35,18 +35,20 @@
         <Image HorizontalAlignment="Left" Height="217" Margin="627,-37,0,0" VerticalAlignment="Top" Width="190" Source="/UserIcon.png"/>
         <Label Content="SCHEDULE AND EDIT MAINTENANCE INFO " HorizontalAlignment="Left" Margin="48,135,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="37" Width="418"/>
         <Label Content="Asset Code" HorizontalAlignment="Left" Margin="44,198,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="76" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtAssetID" HorizontalAlignment="Left" Margin="138,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAssetID_TextChanged" IsEnabled="False"/>
-        <Label Content="Last Maintenance Date" HorizontalAlignment="Left" Margin="386,198,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtLastMaintainDate" HorizontalAlignment="Left" Margin="534,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtLastMaintainDate_TextChanged"/>
+        <TextBox x:Name="txtAssetCode" HorizontalAlignment="Left" Margin="138,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAssetCode_TextChanged"/>
+        <Label Content="Last Maintenance Date" HorizontalAlignment="Left" Margin="382,198,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="142" FontWeight="Bold" Foreground="White" Height="25"/>
         <Label Content="Repair Cycle" HorizontalAlignment="Left" Margin="382,243,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="134" FontWeight="Bold" Foreground="White" Height="25"/>
-        <TextBox x:Name="txtNextMaintainDate" HorizontalAlignment="Left" Margin="534,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtNextMaintainDate_TextChanged"/>
-        <Label Content="Maintenance Type" HorizontalAlignment="Left" Margin="52,242,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="104" FontWeight="Bold" Foreground="White" Height="26"/>
-        <ComboBox x:Name="cbMaintenanceType" HorizontalAlignment="Left" Height="26" Margin="170,242,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxMaintainType_SelectionChanged"/>
-        <Label Content="Maintenance Description" HorizontalAlignment="Left" Margin="52,287,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="140" FontWeight="Bold" Foreground="White" Height="26"/>
+        <Label Content="Maintenance Type" HorizontalAlignment="Left" Margin="52,242,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="118" FontWeight="Bold" Foreground="White" Height="26"/>
+        <ComboBox x:Name="cbMaintenanceType" HorizontalAlignment="Left" Height="26" Margin="175,242,0,0" VerticalAlignment="Top" Width="144" BorderBrush="White" SelectionChanged="ComboBoxMaintainType_SelectionChanged"/>
+        <Label Content="Maintenance Description" HorizontalAlignment="Left" Margin="31,287,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="161" FontWeight="Bold" Foreground="White" Height="26"/>
         <TextBox x:Name="txtMaintenanceDesc" HorizontalAlignment="Left" Margin="198,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" Height="83" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtMaintainDesc_TextChanged"/>
-        <Button x:Name="btnUpdateSched" Content="UPDATE" HorizontalAlignment="Left" Margin="603,328,0,0" VerticalAlignment="Top" Height="42" Width="122" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnUpdate_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
-        <ListBox x:Name="lbxMaintenanceHistory" Width="602" Height="368" Margin="84,443,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxMaintainHistory_SelectionChanged" BorderBrush="White"/>
+        <ListBox x:Name="lbxMaintenanceHistory" Width="712" Height="391" Margin="35,485,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource RoundedLB}" SelectionChanged="lbxMaintainHistory_SelectionChanged" BorderBrush="White"/>
         <Label Content="MAINTENANCE HISTORY" HorizontalAlignment="Left" Margin="260,394,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Height="36" Width="250"/>
+        <DatePicker x:Name="dpLastMaintDate" HorizontalAlignment="Left" Margin="524,200,0,0" VerticalAlignment="Top" Foreground="Black" Background="#FF782929" BorderBrush="#FF782929" Width="159"/>
+        <DatePicker x:Name="dpRepairCycle" HorizontalAlignment="Left" Margin="523,244,0,0" VerticalAlignment="Top" Foreground="Black" Background="#FF782929" BorderBrush="#FF782929" Width="159"/>
+        <Button x:Name="btnAdd" Content="ADD" HorizontalAlignment="Left" Margin="578,328,0,0" VerticalAlignment="Top" Height="42" Width="98" Background="#FF720000" Foreground="#FFFAFAFA" Click="btnAdd_Click" Style="{StaticResource RoundedBTNYellow}" FontWeight="Bold" BorderBrush="#FFE6AA04" FontSize="14"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="14,442,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="76" FontWeight="Bold" Foreground="White" Height="24"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="99,441,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="26" Style="{StaticResource RoundedTB}" FontSize="10" TextChanged="txtAssetCode_TextChanged" KeyUp="txtSearch_KeyUp"/>
 
     </Grid>
 </Window>

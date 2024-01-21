@@ -227,4 +227,43 @@
     <Parameter Name="AN" Parameter="aN" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.uspInsertMaintenance" Method="uspInsertMaintenance">
+    <Parameter Name="AssetID" Parameter="assetID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LastMaintDate" Parameter="lastMaintDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NextMaintDate" Parameter="nextMaintDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="MaintType" Parameter="maintType" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="MaintDesc" Parameter="maintDesc" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspGetAssetIDByAssetCode" Method="uspGetAssetIDByAssetCode">
+    <Parameter Name="AssetCode" Parameter="assetCode" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="uspGetAssetIDByAssetCodeResult">
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspGetMaintenanceHistory" Method="uspGetMaintenanceHistory">
+    <ElementType Name="uspGetMaintenanceHistoryResult">
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastMaintDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaintCycle" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaintType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaintDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSearchByAssetCode" Method="uspSearchByAssetCode">
+    <Parameter Name="AssetCode" Parameter="assetCode" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="uspSearchByAssetCodeResult">
+      <Column Name="AssetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastMaintDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaintCycle" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaintType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaintDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfGetAssetIDByAssetCode" Method="udfGetAssetIDByAssetCode" IsComposable="true">
+    <Parameter Name="code" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

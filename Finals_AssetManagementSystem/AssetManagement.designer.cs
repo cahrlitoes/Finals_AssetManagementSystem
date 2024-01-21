@@ -274,6 +274,40 @@ namespace Finals_AssetManagementSystem
 		{
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aN).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspInsertMaintenance")]
+		public int uspInsertMaintenance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetID", DbType="Int")] System.Nullable<int> assetID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastMaintDate", DbType="Date")] System.Nullable<System.DateTime> lastMaintDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NextMaintDate", DbType="Date")] System.Nullable<System.DateTime> nextMaintDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaintType", DbType="NVarChar(100)")] string maintType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaintDesc", DbType="NVarChar(100)")] string maintDesc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetID, lastMaintDate, nextMaintDate, maintType, maintDesc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGetAssetIDByAssetCode")]
+		public ISingleResult<uspGetAssetIDByAssetCodeResult> uspGetAssetIDByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="NVarChar(50)")] string assetCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetCode);
+			return ((ISingleResult<uspGetAssetIDByAssetCodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspGetMaintenanceHistory")]
+		public ISingleResult<uspGetMaintenanceHistoryResult> uspGetMaintenanceHistory()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<uspGetMaintenanceHistoryResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSearchByAssetCode")]
+		public ISingleResult<uspSearchByAssetCodeResult> uspSearchByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AssetCode", DbType="NVarChar(100)")] string assetCode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), assetCode);
+			return ((ISingleResult<uspSearchByAssetCodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.udfGetAssetIDByAssetCode", IsComposable=true)]
+		public System.Nullable<int> udfGetAssetIDByAssetCode([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string code)
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAdmin")]
@@ -2846,6 +2880,264 @@ namespace Finals_AssetManagementSystem
 				if ((this._AssetStatus != value))
 				{
 					this._AssetStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspGetAssetIDByAssetCodeResult
+	{
+		
+		private int _AssetID;
+		
+		public uspGetAssetIDByAssetCodeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetID", DbType="Int NOT NULL")]
+		public int AssetID
+		{
+			get
+			{
+				return this._AssetID;
+			}
+			set
+			{
+				if ((this._AssetID != value))
+				{
+					this._AssetID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspGetMaintenanceHistoryResult
+	{
+		
+		private int _AssetID;
+		
+		private string _AssetCode;
+		
+		private System.Nullable<System.DateTime> _LastMaintDate;
+		
+		private System.Nullable<System.DateTime> _MaintCycle;
+		
+		private string _MaintType;
+		
+		private string _MaintDesc;
+		
+		public uspGetMaintenanceHistoryResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetID", DbType="Int NOT NULL")]
+		public int AssetID
+		{
+			get
+			{
+				return this._AssetID;
+			}
+			set
+			{
+				if ((this._AssetID != value))
+				{
+					this._AssetID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastMaintDate", DbType="Date")]
+		public System.Nullable<System.DateTime> LastMaintDate
+		{
+			get
+			{
+				return this._LastMaintDate;
+			}
+			set
+			{
+				if ((this._LastMaintDate != value))
+				{
+					this._LastMaintDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintCycle", DbType="Date")]
+		public System.Nullable<System.DateTime> MaintCycle
+		{
+			get
+			{
+				return this._MaintCycle;
+			}
+			set
+			{
+				if ((this._MaintCycle != value))
+				{
+					this._MaintCycle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintType", DbType="NVarChar(100)")]
+		public string MaintType
+		{
+			get
+			{
+				return this._MaintType;
+			}
+			set
+			{
+				if ((this._MaintType != value))
+				{
+					this._MaintType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintDesc", DbType="NVarChar(100)")]
+		public string MaintDesc
+		{
+			get
+			{
+				return this._MaintDesc;
+			}
+			set
+			{
+				if ((this._MaintDesc != value))
+				{
+					this._MaintDesc = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSearchByAssetCodeResult
+	{
+		
+		private int _AssetID;
+		
+		private string _AssetCode;
+		
+		private System.Nullable<System.DateTime> _LastMaintDate;
+		
+		private System.Nullable<System.DateTime> _MaintCycle;
+		
+		private string _MaintType;
+		
+		private string _MaintDesc;
+		
+		public uspSearchByAssetCodeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetID", DbType="Int NOT NULL")]
+		public int AssetID
+		{
+			get
+			{
+				return this._AssetID;
+			}
+			set
+			{
+				if ((this._AssetID != value))
+				{
+					this._AssetID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssetCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AssetCode
+		{
+			get
+			{
+				return this._AssetCode;
+			}
+			set
+			{
+				if ((this._AssetCode != value))
+				{
+					this._AssetCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastMaintDate", DbType="Date")]
+		public System.Nullable<System.DateTime> LastMaintDate
+		{
+			get
+			{
+				return this._LastMaintDate;
+			}
+			set
+			{
+				if ((this._LastMaintDate != value))
+				{
+					this._LastMaintDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintCycle", DbType="Date")]
+		public System.Nullable<System.DateTime> MaintCycle
+		{
+			get
+			{
+				return this._MaintCycle;
+			}
+			set
+			{
+				if ((this._MaintCycle != value))
+				{
+					this._MaintCycle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintType", DbType="NVarChar(100)")]
+		public string MaintType
+		{
+			get
+			{
+				return this._MaintType;
+			}
+			set
+			{
+				if ((this._MaintType != value))
+				{
+					this._MaintType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaintDesc", DbType="NVarChar(100)")]
+		public string MaintDesc
+		{
+			get
+			{
+				return this._MaintDesc;
+			}
+			set
+			{
+				if ((this._MaintDesc != value))
+				{
+					this._MaintDesc = value;
 				}
 			}
 		}

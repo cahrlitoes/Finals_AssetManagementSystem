@@ -98,6 +98,8 @@ namespace Finals_AssetManagementSystem
         private void txtUserSearch_KeyUp(object sender, KeyEventArgs e)
         {
             txtAvailableQty.Text = string.Empty;
+            txtEnterQty.Text = string.Empty;
+            txtPurpose.Text = string.Empty;
             lbxAvailableItems.SelectedIndex = -1;
             cbCategory.SelectedIndex = -1;
             if (e.Key == Key.Enter)
