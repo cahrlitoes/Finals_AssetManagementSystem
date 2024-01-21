@@ -44,6 +44,17 @@ namespace Finals_AssetManagementSystem
             }
         }
 
+            for (int x = 0; x < showAllAssetsResults.Count; x++)
+            {
+                if (!a.Contains(showAllAssetsResults[x].AssetName.ToString()) && showAllAssetsResults[x].AssetStatus.ToString() == "Available")
+                {
+                    a.Add(showAllAssetsResults[x].AssetName.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAllAssetsResults[x].AssetType.ToString() + "\t\t" + showAllAssetsResults[x].AssetStatus.ToString());
+                    z++;
+                }
+            }
+        }
+
         private void fillborrow() //Missing USP for selecting all of the borrowers as well as inserting!!! 
         {
 
@@ -58,10 +69,8 @@ namespace Finals_AssetManagementSystem
 
         private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbxAvailableItems.SelectedItem = -1;
-            cat = (string)cbCategory.SelectedItem;
-            updateListbox();
-        }
+           
+        } 
 
         private void updateListbox()
         {
@@ -70,8 +79,12 @@ namespace Finals_AssetManagementSystem
             List<ShowAssetsByFilterResult> showAssetsByFilterResults = db.ShowAssetsByFilter(cat, stat).ToList();
             foreach (var item in showAssetsByFilterResults)
             {
-                lbxAvailableItems.Items.Add(showAssetsByFilterResults[x].AssetName + "\t\t" + showAssetsByFilterResults[x].AssetCode + "\t\t" + showAssetsByFilterResults[x].AssetType + "\t\t" + showAssetsByFilterResults[x].AssetStatus);
-                x++;
+                if (!a.Contains(showAssetsByFilterResults[x].AssetName.ToString()) && showAssetsByFilterResults[x].AssetStatus.ToString() == "Available")
+                {
+                    a.Add(showAssetsByFilterResults[x].AssetName.ToString());
+                    lbxAvailableItems.Items.Add(a[z] + "\t\t" + showAssetsByFilterResults[x].AssetType.ToString() + "\t\t" + showAssetsByFilterResults[x].AssetStatus.ToString());
+                    z++;
+                }
             }
         }
 
@@ -87,7 +100,12 @@ namespace Finals_AssetManagementSystem
                     List<ShowAssetsBySearchFilterResult> showAssetsBySearchFiltersResults = db.ShowAssetsBySearchFilter(filter).ToList();
                     for (int x = 0; x < showAssetsBySearchFiltersResults.Count; x++)
                     {
-                        lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetCode + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                        if (!a.Contains(showAssetsBySearchFiltersResults[x].AssetName.ToString()) && showAssetsBySearchFiltersResults[x].AssetStatus.ToString() == "Available")
+                        {
+                            a.Add(showAssetsBySearchFiltersResults[z].AssetName.ToString());
+                            lbxAvailableItems.Items.Add(showAssetsBySearchFiltersResults[x].AssetName + "\t\t" + showAssetsBySearchFiltersResults[x].AssetType + "\t\t" + showAssetsBySearchFiltersResults[x].AssetStatus);
+                            z++;
+                        }
                     }
                 }
                 else
@@ -96,6 +114,17 @@ namespace Finals_AssetManagementSystem
                 }
 
             }
+            else if (a == false && txtEnterQty.Text.Length != 0)
+            {
+                MessageBox.Show("Please input a number less than or equal to the available amount");
+                txtEnterQty.Text = string.Empty;
+            }
+            if (c > int.Parse(txtAvailableQty.Text)) 
+            {
+                MessageBox.Show("Please input a number less than or equal to the available amount");
+                txtEnterQty.Text = string.Empty;
+            }
+
         }
     }
 }

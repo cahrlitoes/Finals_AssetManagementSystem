@@ -46,6 +46,41 @@
       <nestedChildShapes>
       </nestedChildShapes>
     </classShape>
+    <classShape Id="cc556267-16eb-4538-8152-fa4ed514636e" absoluteBounds="0.75, 1.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AssetManagementDataContext/tblSupplier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cf73291-66fa-4ce1-9c37-6bf820867009" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 3.75); (4.5 : 1.92390055338542); (6.25 : 1.92390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AssetManagementDataContext/tblAsset/tblAsset_tblBorrowDetail" />
+      <nodes>
+        <classShapeMoniker Id="2a123534-b7a4-45c7-96be-eda57a2aca11" />
+        <classShapeMoniker Id="19c4488d-b966-4687-ac87-546a90807e65" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7); (5.875 : 6.625); (5.875 : 2.54210283007813); (6.25 : 2.54210283007813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AssetManagementDataContext/tblBorrower/tblBorrower_tblBorrowDetail" />
+      <nodes>
+        <classShapeMoniker Id="9a3d92f6-5685-4efd-a898-d9398b56cd8b" />
+        <classShapeMoniker Id="19c4488d-b966-4687-ac87-546a90807e65" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.91429768880208); (3.5 : 4.91429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AssetManagementDataContext/tblLocation/tblLocation_tblAsset" />
+      <nodes>
+        <classShapeMoniker Id="69cfee13-dace-4ef5-991a-37bd358dadd9" />
+        <classShapeMoniker Id="2a123534-b7a4-45c7-96be-eda57a2aca11" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.98159912109375); (5.79166666666667 : 4.98159912109375 : JumpStart); (5.95833333333333 : 4.98159912109375 : JumpEnd); (6.25 : 4.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AssetManagementDataContext/tblAsset/tblAsset_tblMaintenanceSchedule" />
+      <nodes>
+        <classShapeMoniker Id="2a123534-b7a4-45c7-96be-eda57a2aca11" />
+        <classShapeMoniker Id="a74650ac-3b77-4cf6-abf9-d5d2ee933773" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.95274983723958); (10 : 7.95274983723958); (10 : 2.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/AssetManagementDataContext/tblAdmin/tblAdmin_tblRequestStatus" />
       <nodes>
       </nodes>

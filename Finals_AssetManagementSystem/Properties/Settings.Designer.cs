@@ -37,8 +37,8 @@ namespace Finals_AssetManagementSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout" +
-            "=30;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CAHRLOS-ASUS1\\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=T" +
+            "rue;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True")]
         public string MASConnectionString {
             get {
                 return ((string)(this["MASConnectionString"]));

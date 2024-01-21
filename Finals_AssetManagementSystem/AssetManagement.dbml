@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MAS" Class="AssetManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CAHRLOS-ASUS1\MSSQLSERVER01;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString3" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FLAGSHIP;Initial Catalog=MAS;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Finals_AssetManagementSystem.Properties.Settings" SettingsPropertyName="MASConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAdmin" Member="tblAdmins">
     <Type Name="tblAdmin">
       <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

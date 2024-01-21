@@ -57,6 +57,7 @@ namespace Finals_AssetManagementSystem
     #endregion
 		
 		public AssetManagementDataContext() : 
+				base(global::Finals_AssetManagementSystem.Properties.Settings.Default.MASConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
